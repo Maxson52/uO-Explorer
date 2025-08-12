@@ -1,0 +1,26 @@
+{
+	"auth": {
+		"email": "Email Address",
+		"name": "Name",
+		"password": "Password",
+		"confirm_password": "Confirm Password",
+		"sign_up": {
+			"title": "Sign Up",
+			"button": "Sign Up",
+			"have_account": "Already have an account?",
+			"login_link": "Log In"
+		},
+		"login": {
+			"title": "Log In",
+			"button": "Log In",
+			"no_account": "Don't have an account?",
+			"signup_link": "Sign Up",
+			"forgot_password_link": "Forgot your password?"
+		},
+		"forgot_password": {
+			"title": "Forgot your password?",
+			"subtitle": "No worries! Simply enter your registered email address below, and we'll send you instructions on how to reset it.",
+			"button": "Reset Password"
+		}
+	}
+}

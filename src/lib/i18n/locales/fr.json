@@ -1,0 +1,26 @@
+{
+	"auth": {
+		"email": "Adresse courriel",
+		"name": "Nom",
+		"password": "Mot de passe",
+		"confirm_password": "Confirmer mot de passe",
+		"sign_up": {
+			"title": "S'inscrire",
+			"button": "S'inscrire",
+			"have_account": "Vous avez déjà un compte?",
+			"login_link": "Se connecter"
+		},
+		"login": {
+			"title": "Se connecter",
+			"button": "Se connecter",
+			"no_account": "Vous n'avez pas de compte?",
+			"signup_link": "S'inscrire",
+			"forgot_password_link": "Mot de passe oublié?"
+		},
+		"forgot_password": {
+			"title": "Oublier votre mot de passe?",
+			"subtitle": "Aucun problème! Entrez simplement votre adresse courriel ci-dessous, et nous vous enverrons des instructions sur la façon de la réinitialiser.",
+			"button": "Réinitialiser mot de passe"
+		}
+	}
+}
