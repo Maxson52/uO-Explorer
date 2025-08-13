@@ -30,8 +30,8 @@
 </script>
 
 {#if !pb.authStore.isValid}
-	<div class="flex min-h-screen flex-col">
-		<div class="flex flex-grow items-center justify-center bg-base-200">
+	<div class="flex flex-col min-h-screen">
+		<div class="flex items-center justify-center flex-grow bg-base-200">
 			{@render children()}
 		</div>
 	</div>

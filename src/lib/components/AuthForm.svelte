@@ -8,6 +8,7 @@
 	import { goto } from '$app/navigation';
 
 	import { t } from 'svelte-i18n';
+	import ChangeLanguage from './ChangeLanguage.svelte';
 
 	const { pb } = getPocketBaseInstance();
 
@@ -66,24 +67,36 @@
 			} else {
 				console.error('Unexpected error:', e);
 				alertType = 'error';
-				alertMessage = (e as Error)?.message;
+				// alertMessage = (e as Error)?.message;
+				alertMessage = $t('auth.wrong_info');
 			}
 		}
 	};
 </script>
 
-<div class="flex items-center justify-center flex-grow">
-	<div class="shadow-xl card w-96 bg-base-100">
+<div class="flex flex-grow items-center justify-center">
+	<div class="card w-96 bg-base-100 shadow-xl">
 		<div class="card-body">
-			<h2 class="text-center card-title">{signUp ? 'Sign Up' : 'Log In'}</h2>
+			<div class="">
+				<h1 class="card-title text-2xl">{$t('site_name')}</h1>
+				<p class="text-gray-700">
+					{$t('auth.login_to_continue')}
+				</p>
+			</div>
+
+			<hr />
+
+			<h2 class="card-title mb-2 text-center">
+				{signUp ? $t('auth.sign_up.title') : $t('auth.login.title')}
+			</h2>
 			{#if signUp}
-				<div class="relative mb-4 form-control">
+				<div class="form-control relative">
 					<input
 						type="text"
 						id="name"
 						class="input input-bordered"
 						class:border-error={formErrors?.name}
-						placeholder="Name"
+						placeholder={$t('auth.name')}
 						required
 						bind:value={name}
 					/>
@@ -94,13 +107,13 @@
 					{/if}
 				</div>
 			{/if}
-			<div class="relative mb-4 form-control">
+			<div class="form-control relative">
 				<input
 					type="email"
 					id="email"
 					class="input input-bordered"
 					class:border-error={formErrors?.email}
-					placeholder="Email Address"
+					placeholder={$t('auth.email')}
 					required
 					bind:value={email}
 				/>
@@ -110,26 +123,26 @@
 					</label>
 				{/if}
 			</div>
-			<div class="relative mb-4 form-control">
+			<div class="form-control relative">
 				<input
 					type={showPassword ? 'text' : 'password'}
 					id="password"
 					class="input input-bordered"
 					class:border-error={formErrors?.password}
-					placeholder="Password"
+					placeholder={$t('auth.password')}
 					required
 					bind:value={password}
 				/>
 				{#if showPassword}
 					<button
-						class="absolute top-0 right-0 mt-3 mr-3 cursor-pointer"
+						class="absolute right-0 top-0.5 mr-3 mt-3 cursor-pointer"
 						onclick={() => (showPassword = !showPassword)}
 					>
 						<MdiEyeOff></MdiEyeOff>
 					</button>
 				{:else}
 					<button
-						class="absolute top-0 right-0 mt-3 mr-3 cursor-pointer"
+						class="absolute right-0 top-0.5 mr-3 mt-3 cursor-pointer"
 						onclick={() => (showPassword = !showPassword)}
 					>
 						<MdiEye></MdiEye>
@@ -142,26 +155,26 @@
 				{/if}
 			</div>
 			{#if signUp}
-				<div class="relative mb-4 form-control">
+				<div class="form-control relative">
 					<input
 						type={showConfirmPassword ? 'text' : 'password'}
 						id="confirm-password"
 						class="input input-bordered"
 						class:border-error={formErrors?.confirmPassword}
-						placeholder="Confirm Password"
+						placeholder={$t('auth.confirm_password')}
 						required
 						bind:value={confirmPassword}
 					/>
 					{#if showConfirmPassword}
 						<button
-							class="absolute top-0 right-0 mt-3 mr-3 cursor-pointer"
+							class="absolute right-0 top-0 mr-3 mt-3 cursor-pointer"
 							onclick={() => (showConfirmPassword = !showConfirmPassword)}
 						>
 							<MdiEyeOff></MdiEyeOff>
 						</button>
 					{:else}
 						<button
-							class="absolute top-0 right-0 mt-3 mr-3 cursor-pointer"
+							class="absolute right-0 top-0 mr-3 mt-3 cursor-pointer"
 							onclick={() => (showConfirmPassword = !showConfirmPassword)}
 						>
 							<MdiEye></MdiEye>
@@ -177,28 +190,33 @@
 			{#if alertType && alertMessage}
 				<Alert type={alertType} message={alertMessage}></Alert>
 			{/if}
-			<div class="form-control">
+			<div class="form-control mb-1">
 				<button
 					type="button"
-					class="w-full btn btn-primary"
+					class="btn btn-primary w-full"
 					onclick={signUp ? handleSignUpClick : handleLoginClick}
-					>{signUp ? 'Sign Up' : 'Log In'}</button
+					>{signUp ? $t('auth.sign_up.button') : $t('auth.login.button')}</button
 				>
 			</div>
 			{#if !signUp}
-				<p class="text-sm text-center">
-					<a href="/forgot-password" class="text-primary">Forgot your password?</a>
+				<p class="text-center text-sm">
+					<a href="/forgot-password" class="text-primary">{$t('auth.login.forgot_password_link')}</a
+					>
 				</p>
 			{/if}
-			<div class="mt-4 text-center">
+			<div class="text-center">
 				<p class="text-sm">
 					{#if signUp}
-						Already have an account? <a href="/login" class="text-primary">Log In</a>
+						{$t('auth.sign_up.have_account')}
+						<a href="/login" class="text-primary">{$t('auth.login.title')}</a>
 					{:else}
-						Don't have an account? <a href="/signup" class="text-primary">Sign Up</a>
+						{$t('auth.login.no_account')}
+						<a href="/signup" class="text-primary">{$t('auth.sign_up.title')}</a>
 					{/if}
 				</p>
 			</div>
+
+			<ChangeLanguage />
 		</div>
 	</div>
 </div>

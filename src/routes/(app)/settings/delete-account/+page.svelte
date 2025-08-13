@@ -6,6 +6,8 @@
 	import Modal from '$lib/components/Modal.svelte';
 	import { sleep } from '$lib';
 
+	import { t } from 'svelte-i18n';
+
 	const { pb } = getPocketBaseInstance();
 
 	let alertType = $state('');
@@ -39,52 +41,51 @@
 </script>
 
 {#snippet modalActions()}
-	<button class="btn" onclick={() => dialogRef?.close?.()}>Cancel</button>
-	<button class="btn btn-error" onclick={handleConfirmDeleteAccountClick}>Confirm</button>
+	<button class="btn" onclick={() => dialogRef?.close?.()}>{$t('settings.cancel')}</button>
+	<button class="btn btn-error" onclick={handleConfirmDeleteAccountClick}
+		>{$t('settings.confirm')}</button
+	>
 {/snippet}
 
 <Modal
 	bind:dialogRef
 	id="delete-account-modal"
-	title="Delete Account"
-	description="Are you sure you want to delete your account? This cannot be undone."
+	title={$t('nav.delete_account')}
+	description={$t('settings.delete_account.are_you_sure')}
 	dismissable={true}
 	actionSnippet={modalActions}
 ></Modal>
 
-<div class="flex flex-grow items-center justify-center">
-	<div class="container mx-auto p-4">
-		<div
-			class="card mx-auto max-w-md bg-base-100
-        p-6 shadow-xl lg:rounded-lg"
-		>
-			<a href="/settings" class="btn btn-circle btn-ghost text-left text-xl"
+<div class="flex items-center justify-center flex-grow">
+	<div class="container p-4 mx-auto">
+		<div class="max-w-md p-6 mx-auto shadow-xl card bg-base-100 lg:rounded-lg">
+			<a href="/settings" class="text-xl text-left btn btn-circle btn-ghost"
 				><MdiArrowLeft></MdiArrowLeft></a
 			>
-			<h2 class="mb-4 text-center text-2xl font-bold">Delete Account</h2>
+			<h2 class="mb-4 text-2xl font-bold text-center">{$t('nav.delete_account')}</h2>
 			<p class="mb-4 text-center">
-				We're sad to see you go - but if you must, confirm your email address and click the button
-				below to proceed.
+				{$t('settings.delete_account.message')}
 			</p>
 			{#if alertType && alertMessage}
 				<div class="mb-4">
 					<Alert type={alertType} message={alertMessage}></Alert>
 				</div>
 			{/if}
-			<div class="form-control relative mb-4">
+			<div class="relative mb-4 form-control">
 				<input
 					type="email"
 					id="email"
 					class="input input-bordered"
-					placeholder="Current Email Address"
+					placeholder={$t('settings.delete_account.current_email')}
 					bind:value={email}
 				/>
 			</div>
 			<div class="text-center">
 				<button
-					class="btn btn-primary min-w-full"
+					class="min-w-full btn btn-primary"
 					onclick={() => dialogRef?.showModal?.()}
-					disabled={email !== pb?.authStore?.record?.email}>Delete My Account Forever</button
+					disabled={email !== pb?.authStore?.record?.email}
+					>{$t('settings.delete_account.delete_forever')}</button
 				>
 			</div>
 		</div>

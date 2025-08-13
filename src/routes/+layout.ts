@@ -1,5 +1,3 @@
-import { pageTitles } from '$lib/constants.js';
-
 export const ssr = false;
 export const prerender = false;
 
@@ -8,13 +6,9 @@ import { browser } from '$app/environment';
 import '$lib/i18n';
 import { locale, waitLocale } from 'svelte-i18n';
 
-export const load = async ({ url }) => {
+export const load = async () => {
 	if (browser) {
-		locale.set(window.navigator.language);
+		locale.set(localStorage.getItem('locale') || window.navigator.language);
 	}
 	await waitLocale();
-
-	return {
-		title: pageTitles?.[url?.pathname] || ''
-	};
 };

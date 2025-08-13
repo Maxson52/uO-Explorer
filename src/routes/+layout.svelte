@@ -1,11 +1,9 @@
 <script lang="ts">
 	import '../app.css';
 	import { type Snippet } from 'svelte';
-	import { PUBLIC_APP_NAME } from '$env/static/public';
-	import { page } from '$app/state';
+	import { t } from 'svelte-i18n';
 	let {
-		children,
-		data
+		children
 	}: {
 		children: Snippet;
 		data: any[];
@@ -13,6 +11,6 @@
 </script>
 
 <svelte:head>
-	<title>{page?.data?.title ? `${PUBLIC_APP_NAME} - ${page?.data?.title}` : PUBLIC_APP_NAME}</title>
+	<title>{$t('site_name')}</title>
 </svelte:head>
 {@render children()}

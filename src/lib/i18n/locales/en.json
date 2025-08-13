@@ -1,9 +1,14 @@
 {
+	"site_name": "uOttawa Explorer",
+	"loading": "Loading",
+	"back": "Back",
 	"auth": {
 		"email": "Email Address",
 		"name": "Name",
 		"password": "Password",
 		"confirm_password": "Confirm Password",
+		"wrong_info": "Email or password is incorrect",
+		"login_to_continue": "Please log in or create an account to continue to the app.",
 		"sign_up": {
 			"title": "Sign Up",
 			"button": "Sign Up",
@@ -22,5 +27,54 @@
 			"subtitle": "No worries! Simply enter your registered email address below, and we'll send you instructions on how to reset it.",
 			"button": "Reset Password"
 		}
+	},
+	"nav": {
+		"home": "Schedule",
+		"map": "Campus Map",
+		"settings": "Settings",
+		"change_password": "Change Password",
+		"change_email": "Change Email",
+		"delete_account": "Delete Account",
+		"log_out": "Log Out"
+	},
+	"settings": {
+		"check_inbox": "Please check your inbox.",
+		"send_email": "Send Email",
+		"confirm": "Confirm",
+		"cancel": "Cancel",
+		"change_password": {
+			"message": "Upon clicking the 'Change Password' button, you'll receive an email with a link to update your password.",
+			"description": "Mettez à jour votre mot de passe régulièrement pour assurer la sécurité de votre compte."
+		},
+		"change_email": {
+			"current_email": "Current Email Address",
+			"message": "Upon clicking the 'Change Email' button, you'll receive an email with a link to confirm your new email address.",
+			"description": "Maintenez votre adresse email à jour pour recevoir les notifications importantes."
+		},
+		"delete_account": {
+			"current_email": "Current Email Address",
+			"message": "We're sad to see you go - but if you must, confirm your email address and click the button below to proceed.",
+			"delete_forever": "Delete My Account Forever",
+			"are_you_sure": "Are you sure you want to delete your account? This cannot be undone.",
+			"description": "Supprimer définitivement votre compte (cette action est irréversible)."
+		}
+	},
+	"map": {
+		"learn_more": "Learn more"
+	},
+	"home": {
+		"view_map": "See the Campus Map",
+		"schedule": "Schedule",
+		"start": "From",
+		"end": "To"
+	},
+	"scan": {
+		"title": "Scan the QR Codes placed throughout the campus to gain entries to the lucky draw!",
+		"camera_permission": "Please enable camera permissions to begin scanning",
+		"back_to_map": "Back to Map",
+		"draw_entered": "+1 Entry to the lucky draw",
+		"scanned": "scanned",
+		"invalid_qr": "Invalid QR Code",
+		"location_doesnt_exist": "This location doesn't exist in our system."
 	}
 }

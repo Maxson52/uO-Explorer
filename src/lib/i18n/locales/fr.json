@@ -1,9 +1,14 @@
 {
+	"site_name": "Explorateur uOttawa",
+	"loading": "Chargement",
+	"back": "Retour",
 	"auth": {
 		"email": "Adresse courriel",
 		"name": "Nom",
 		"password": "Mot de passe",
 		"confirm_password": "Confirmer mot de passe",
+		"wrong_info": "L'adresse courriel ou le mot de passe est incorrect",
+		"login_to_continue": "Veuillez vous connecter ou créer un compte pour accéder à l'application.",
 		"sign_up": {
 			"title": "S'inscrire",
 			"button": "S'inscrire",
@@ -22,5 +27,54 @@
 			"subtitle": "Aucun problème! Entrez simplement votre adresse courriel ci-dessous, et nous vous enverrons des instructions sur la façon de la réinitialiser.",
 			"button": "Réinitialiser mot de passe"
 		}
+	},
+	"nav": {
+		"home": "Horraire",
+		"map": "Carte du campus",
+		"settings": "Paramètres",
+		"change_password": "Changer le mot de passe",
+		"change_email": "Changer l'adresse email",
+		"delete_account": "Supprimer le compte",
+		"log_out": "Se déconnecter"
+	},
+	"settings": {
+		"check_inbox": "Veuillez vérifier votre boîte de réception.",
+		"send_email": "Envoyer l'email",
+		"confirm": "Confirmer",
+		"cancel": "Annuler",
+		"change_password": {
+			"message": "En cliquant sur le bouton 'Changer le mot de passe', vous recevrez un email contenant un lien pour mettre à jour votre mot de passe.",
+			"description": "Mettez à jour votre mot de passe régulièrement pour assurer la sécurité de votre compte."
+		},
+		"change_email": {
+			"current_email": "Adresse email actuelle",
+			"message": "En cliquant sur le bouton 'Changer l'email', vous recevrez un email avec un lien pour confirmer votre nouvelle adresse email.",
+			"description": "Maintenez votre adresse email à jour pour recevoir les notifications importantes."
+		},
+		"delete_account": {
+			"current_email": "Adresse email actuelle",
+			"message": "Nous sommes tristes de vous voir partir - mais si vous devez vraiment le faire, confirmez votre adresse email et cliquez sur le bouton ci-dessous pour continuer.",
+			"delete_forever": "Supprimer mon compte définitivement",
+			"are_you_sure": "Êtes-vous sûr de vouloir supprimer votre compte ? Cette action est irréversible.",
+			"description": "Supprimer définitivement votre compte (cette action est irréversible)."
+		}
+	},
+	"map": {
+		"learn_more": "Pour en savoir plus"
+	},
+	"home": {
+		"view_map": "Voir la carte du campus",
+		"schedule": "Programme",
+		"start": "De",
+		"end": "À"
+	},
+	"scan": {
+		"title": "Scannez les codes QR placés sur le campus pour obtenir des participations au tirage au sort!",
+		"camera_permission": "Veuillez activer les permissions de la caméra pour commencer le scan",
+		"back_to_map": "Retour à la carte",
+		"draw_entered": "+1 Participation au tirage",
+		"scanned": "scanné",
+		"invalid_qr": "Code QR invalide",
+		"location_doesnt_exist": "Cet emplacement n'existe pas dans notre système."
 	}
 }

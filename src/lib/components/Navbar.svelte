@@ -4,16 +4,24 @@
 
 	import { getPocketBaseInstance } from '$lib/states/pocketbase.svelte';
 	import Drawer from './Drawer.svelte';
+	import ChangeLanguage from './ChangeLanguage.svelte';
 	import { accountSettings } from '$lib/constants';
+
+	import { t } from 'svelte-i18n';
 
 	const { pb } = getPocketBaseInstance();
 
 	let isDrawerOpen: boolean = $state(false);
 </script>
 
-<div class="sticky top-0 z-10 mt-1 navbar bg-base-100">
+<div class="navbar sticky top-0 z-20 bg-base-100">
 	<div class="navbar-start">
-		<a class="hidden text-xl btn btn-ghost lg:flex" href="/home">Home</a>
+		<a class="flex text-xl" href="/home">
+			<img src="/favicon.png" alt="Favicon" class="btn btn-ghost" />
+		</a>
+		<a class="btn btn-ghost hidden text-xl lg:flex" href="/home">{$t('nav.home')}</a>
+		<a class="btn btn-ghost hidden text-xl lg:flex" href="/map">{$t('nav.map')}</a>
+		<ChangeLanguage class="btn btn-ghost hidden text-xl lg:flex" />
 	</div>
 	<div class="navbar-end">
 		<button
@@ -28,16 +36,26 @@
 </div>
 
 {#snippet optionSnippet()}
+	<li class="block lg:hidden">
+		<a class="" href="/home" onclick={() => (isDrawerOpen = !isDrawerOpen)}>{$t('nav.home')}</a>
+	</li>
+	<li class="block lg:hidden">
+		<a class="" href="/map" onclick={() => (isDrawerOpen = !isDrawerOpen)}>{$t('nav.map')}</a>
+	</li>
+	<li class="block lg:hidden">
+		<ChangeLanguage />
+	</li>
+	<hr class="my-2 block lg:hidden" />
 	<li>
 		<a href="/settings" onclick={() => (isDrawerOpen = !isDrawerOpen)}
-			><MdiCogOutline></MdiCogOutline>Settings</a
+			><MdiCogOutline></MdiCogOutline>{$t('nav.settings')}</a
 		>
 		<ul>
 			{#each accountSettings as setting}
 				{@const IconComponent = setting?.icon}
 				<li>
 					<a href={setting?.pathName} onclick={() => (isDrawerOpen = !isDrawerOpen)}
-						><IconComponent></IconComponent>{setting?.name}</a
+						><IconComponent></IconComponent>{$t(`nav.${setting?.name}`)}</a
 					>
 				</li>
 			{/each}
@@ -47,7 +65,7 @@
 		<button
 			onclick={() => {
 				pb.authStore.clear();
-			}}><MdiLogout></MdiLogout>Log Out</button
+			}}><MdiLogout></MdiLogout>{$t('nav.log_out')}</button
 		>
 	</li>
 {/snippet}
