@@ -8,6 +8,14 @@
 		children: Snippet;
 		data: any[];
 	} = $props();
+
+	// handle offline
+	import { online } from 'svelte/reactivity/window';
+	import { goto } from '$app/navigation';
+
+	$effect(() => {
+		if (!online.current) goto('/offline');
+	});
 </script>
 
 <svelte:head>

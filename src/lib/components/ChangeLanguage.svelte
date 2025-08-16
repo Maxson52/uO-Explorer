@@ -15,7 +15,7 @@
 </script>
 
 <div class="text-center">
-	<button class={'min-w-full text-sm text-primary ' + classes} onclick={changeLanguage}>
+	<button class={'min-w-full text-sm text-garnet-500 ' + classes} onclick={changeLanguage}>
 		{$locale == 'en' ? 'Français' : 'English'}
 	</button>
 </div>

@@ -9,6 +9,7 @@
 		"confirm_password": "Confirmer mot de passe",
 		"wrong_info": "L'adresse courriel ou le mot de passe est incorrect",
 		"login_to_continue": "Veuillez vous connecter ou créer un compte pour accéder à l'application.",
+		"powered_by": "Alimenté Par",
 		"sign_up": {
 			"title": "S'inscrire",
 			"button": "S'inscrire",
@@ -35,7 +36,8 @@
 		"change_password": "Changer le mot de passe",
 		"change_email": "Changer l'adresse email",
 		"delete_account": "Supprimer le compte",
-		"log_out": "Se déconnecter"
+		"log_out": "Se déconnecter",
+		"more": "Plus"
 	},
 	"settings": {
 		"check_inbox": "Veuillez vérifier votre boîte de réception.",
@@ -60,13 +62,14 @@
 		}
 	},
 	"map": {
-		"learn_more": "Pour en savoir plus"
+		"learn_more": "Pour en savoir plus",
+		"progress": "Découvert {visited} de {total} lieux ({percentage}%)"
 	},
 	"home": {
 		"view_map": "Voir la carte du campus",
 		"schedule": "Programme",
-		"start": "De",
-		"end": "À"
+		"start": "À partir",
+		"end": "Jusqu'à"
 	},
 	"scan": {
 		"title": "Scannez les codes QR placés sur le campus pour obtenir des participations au tirage au sort!",
@@ -76,5 +79,26 @@
 		"scanned": "scanné",
 		"invalid_qr": "Code QR invalide",
 		"location_doesnt_exist": "Cet emplacement n'existe pas dans notre système."
+	},
+	"error": {
+		"status": {
+			"default": "Erreur"
+		},
+		"message": {
+			"default": "Quelque chose s'est mal passé"
+		},
+		"404": {
+			"message": "La page que vous recherchez n'existe pas ou a peut-être été déplacée."
+		},
+		"general": {
+			"message": "Nous avons rencontré une erreur inattendue. Veuillez vérifier votre connexion Internet et réessayer."
+		},
+		"actions": {
+			"retry": "Réessayer",
+			"home": "Retour à l'accueil"
+		},
+		"hints": {
+			"connection": "Assurez-vous d'être connecté à Internet et rechargez la page"
+		}
 	}
 }

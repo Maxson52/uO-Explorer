@@ -33,7 +33,7 @@
 	}
 </script>
 
-<div class="mx-auto min-h-screen w-full max-w-[720px] bg-gray-50 pb-10">
+<div class="mx-auto min-h-screen w-full max-w-[720px] bg-gray-50 pb-20">
 	{#if loading}
 		<div class="flex h-screen items-center justify-center">
 			<div class="animate-pulse text-gray-500">{$t('loading')}...</div>
@@ -41,7 +41,7 @@
 	{:else if error}
 		<div class="p-4 text-red-500">{error}</div>
 	{:else if location}
-		<div class="absolute top-16 z-10 flex items-center p-4">
+		<div class="absolute z-10 flex items-center p-4">
 			<button
 				on:click={goBack}
 				class="flex h-10 w-10 items-center justify-center rounded-full bg-white/50 backdrop-blur-sm transition-colors hover:bg-gray-200/50"
@@ -72,7 +72,9 @@
 			</h1>
 
 			<div class="mt-4 max-w-none whitespace-pre-line leading-7 text-gray-700">
-				{$locale === 'fr' ? location.description_fr : location.description_en}
+				{$locale === 'fr'
+					? location.description_fr || location.description_preview_fr
+					: location.description_en || location.description_preview_en}
 			</div>
 		</div>
 	{:else}
@@ -80,12 +82,14 @@
 	{/if}
 </div>
 
-<div class="fixed bottom-4 right-4 z-50">
-	<a
-		href="/scan"
-		class="flex h-14 w-14 items-center justify-center rounded-full bg-blue-500 p-3 shadow-lg transition-all hover:bg-blue-600 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-blue-400 focus:ring-opacity-75"
-	>
-		<MdiCamera class="h-8 w-8 text-white" />
-		<span class="sr-only">Scan QR Code</span>
-	</a>
-</div>
+{#if !loading && !location?.is_custom}
+	<div class="fixed bottom-20 right-4 z-50">
+		<a
+			href="/scan"
+			class="flex h-14 w-14 items-center justify-center rounded-full bg-garnet-500 p-3 shadow-lg transition-all hover:bg-garnet-400 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-garnet-400 focus:ring-opacity-75"
+		>
+			<MdiCamera class="h-8 w-8 text-white" />
+			<span class="sr-only">Scan QR Code</span>
+		</a>
+	</div>
+{/if}

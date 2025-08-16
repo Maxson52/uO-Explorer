@@ -56,13 +56,13 @@
 	actionSnippet={modalActions}
 ></Modal>
 
-<div class="flex items-center justify-center flex-grow">
-	<div class="container p-4 mx-auto">
-		<div class="max-w-md p-6 mx-auto shadow-xl card bg-base-100 lg:rounded-lg">
-			<a href="/settings" class="text-xl text-left btn btn-circle btn-ghost"
+<div class="flex flex-grow items-center justify-center">
+	<div class="container mx-auto p-4">
+		<div class="card mx-auto max-w-md bg-base-100 p-6 shadow-xl lg:rounded-lg">
+			<a href="/settings" class="btn btn-circle btn-ghost text-left text-xl"
 				><MdiArrowLeft></MdiArrowLeft></a
 			>
-			<h2 class="mb-4 text-2xl font-bold text-center">{$t('nav.delete_account')}</h2>
+			<h2 class="mb-4 text-center text-2xl font-bold">{$t('nav.delete_account')}</h2>
 			<p class="mb-4 text-center">
 				{$t('settings.delete_account.message')}
 			</p>
@@ -71,7 +71,7 @@
 					<Alert type={alertType} message={alertMessage}></Alert>
 				</div>
 			{/if}
-			<div class="relative mb-4 form-control">
+			<div class="form-control relative mb-4">
 				<input
 					type="email"
 					id="email"
@@ -82,7 +82,7 @@
 			</div>
 			<div class="text-center">
 				<button
-					class="min-w-full btn btn-primary"
+					class="btn min-w-full bg-garnet-500 text-white"
 					onclick={() => dialogRef?.showModal?.()}
 					disabled={email !== pb?.authStore?.record?.email}
 					>{$t('settings.delete_account.delete_forever')}</button

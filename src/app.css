@@ -1,3 +1,7 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.btn.bg-garnet-500 {
+	@apply hover:bg-garnet-400;
+}

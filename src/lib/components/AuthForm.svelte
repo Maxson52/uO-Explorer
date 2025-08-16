@@ -193,14 +193,15 @@
 			<div class="form-control mb-1">
 				<button
 					type="button"
-					class="btn btn-primary w-full"
+					class="btn w-full bg-garnet-500 text-white"
 					onclick={signUp ? handleSignUpClick : handleLoginClick}
 					>{signUp ? $t('auth.sign_up.button') : $t('auth.login.button')}</button
 				>
 			</div>
 			{#if !signUp}
 				<p class="text-center text-sm">
-					<a href="/forgot-password" class="text-primary">{$t('auth.login.forgot_password_link')}</a
+					<a href="/forgot-password" class="text-garnet-500"
+						>{$t('auth.login.forgot_password_link')}</a
 					>
 				</p>
 			{/if}
@@ -208,10 +209,10 @@
 				<p class="text-sm">
 					{#if signUp}
 						{$t('auth.sign_up.have_account')}
-						<a href="/login" class="text-primary">{$t('auth.login.title')}</a>
+						<a href="/login" class="text-garnet-500">{$t('auth.login.title')}</a>
 					{:else}
 						{$t('auth.login.no_account')}
-						<a href="/signup" class="text-primary">{$t('auth.sign_up.title')}</a>
+						<a href="/signup" class="text-garnet-500">{$t('auth.sign_up.title')}</a>
 					{/if}
 				</p>
 			</div>

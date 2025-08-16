@@ -9,6 +9,7 @@
 		"confirm_password": "Confirm Password",
 		"wrong_info": "Email or password is incorrect",
 		"login_to_continue": "Please log in or create an account to continue to the app.",
+		"powered_by": "Powered By",
 		"sign_up": {
 			"title": "Sign Up",
 			"button": "Sign Up",
@@ -35,7 +36,8 @@
 		"change_password": "Change Password",
 		"change_email": "Change Email",
 		"delete_account": "Delete Account",
-		"log_out": "Log Out"
+		"log_out": "Log Out",
+		"more": "More"
 	},
 	"settings": {
 		"check_inbox": "Please check your inbox.",
@@ -60,13 +62,14 @@
 		}
 	},
 	"map": {
-		"learn_more": "Learn more"
+		"learn_more": "Learn more",
+		"progress": "Discovered {visited} of {total} locations ({percentage}%)"
 	},
 	"home": {
 		"view_map": "See the Campus Map",
 		"schedule": "Schedule",
 		"start": "From",
-		"end": "To"
+		"end": "Until"
 	},
 	"scan": {
 		"title": "Scan the QR Codes placed throughout the campus to gain entries to the lucky draw!",
@@ -76,5 +79,26 @@
 		"scanned": "scanned",
 		"invalid_qr": "Invalid QR Code",
 		"location_doesnt_exist": "This location doesn't exist in our system."
+	},
+	"error": {
+		"status": {
+			"default": "Error"
+		},
+		"message": {
+			"default": "Something went wrong"
+		},
+		"404": {
+			"message": "The page you're looking for doesn't exist or may have been moved."
+		},
+		"general": {
+			"message": "We encountered an unexpected error. Please check your internet connection and try again."
+		},
+		"actions": {
+			"retry": "Try Again",
+			"home": "Return Home"
+		},
+		"hints": {
+			"connection": "Ensure you're connected to the internet and try reloading"
+		}
 	}
 }

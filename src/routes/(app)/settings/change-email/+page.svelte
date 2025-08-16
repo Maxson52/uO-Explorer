@@ -39,14 +39,14 @@
 	};
 </script>
 
-<div class="flex items-center justify-center flex-grow">
-	<div class="container p-4 mx-auto">
-		<div class="max-w-md p-6 mx-auto shadow-xl card bg-base-100 lg:rounded-lg">
-			<a href="/settings" class="text-xl text-left btn btn-circle btn-ghost"
+<div class="flex flex-grow items-center justify-center">
+	<div class="container mx-auto p-4">
+		<div class="card mx-auto max-w-md bg-base-100 p-6 shadow-xl lg:rounded-lg">
+			<a href="/settings" class="btn btn-circle btn-ghost text-left text-xl"
 				><MdiArrowLeft></MdiArrowLeft></a
 			>
-			<h2 class="mb-4 text-2xl font-bold text-center">{$t('nav.change_email')}</h2>
-			<div class="relative mb-4 form-control">
+			<h2 class="mb-4 text-center text-2xl font-bold">{$t('nav.change_email')}</h2>
+			<div class="form-control relative mb-4">
 				<label class="label" for="email">
 					<span class="label-text">{$t('settings.change_email.current_email')}</span>
 				</label>
@@ -66,7 +66,7 @@
 				</div>
 			{/if}
 			<div class="text-center">
-				<button class="min-w-full btn btn-primary" onclick={handleChangeEmailClick}
+				<button class="btn min-w-full bg-garnet-500 text-white" onclick={handleChangeEmailClick}
 					>{$t('settings.send_email')}</button
 				>
 			</div>
