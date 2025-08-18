@@ -32,6 +32,11 @@
 	"nav": {
 		"home": "Schedule",
 		"map": "Campus Map",
+		"donate": "Donate",
+		"help": "Help",
+		"purchase_ring": "Purchase a Ring",
+		"emergency": "Emergency",
+		"sponsors": "Sponsors",
 		"settings": "Settings",
 		"change_password": "Change Password",
 		"change_email": "Change Email",
@@ -63,7 +68,9 @@
 	},
 	"map": {
 		"learn_more": "Learn more",
-		"progress": "Discovered {visited} of {total} locations ({percentage}%)"
+		"progress": "Discovered {visited} of {total} locations ({percentage}%)",
+		"you_are_here": "You are here",
+		"locations": "Locations"
 	},
 	"home": {
 		"view_map": "See the Campus Map",
@@ -100,5 +107,21 @@
 		"hints": {
 			"connection": "Ensure you're connected to the internet and try reloading"
 		}
+	},
+	"sponsors": {
+		"our_sponsors": "Our Sponsors",
+		"manulife": "A leading international financial services group that helps people make their decisions easier and lives better.",
+		"belairdirect": "A Canadian insurance company offering car and home insurance with innovative digital tools and personalized service.",
+		"td": "Committed to helping Canadian businesses grow with tailored banking solutions and expert advice."
+	},
+	"help": {
+		"guide": "Guide",
+		"schedule": "Schedule Tab",
+		"schedule_desc": "View the events schedule, plan your day, and have a blast at our lovely campus.",
+		"map": "Campus Map Tab",
+		"map_desc": "Interactive map of the campus. Find buildings, events, and amenities. Tap locations for more information.",
+		"need_help": "Need Help?",
+		"contact_us": "Contact us directly",
+		"call": "Call"
 	}
 }

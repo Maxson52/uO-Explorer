@@ -18,7 +18,7 @@
 		try {
 			if (!id) throw new Error('Location ID could not be found in URL');
 			location = await pb.collection('locations').getOne(id);
-			if (location.is_custom) throw new Error('This location is not scannable');
+			if (!location.has_qr_code) throw new Error('This location is not scannable');
 		} catch (err: any) {
 			error = err.message;
 		} finally {
@@ -80,7 +80,7 @@
 
 	<a
 		href="/map"
-		class="bg-garnet-500 hover:bg-garnet-400 flex flex-row items-center justify-center gap-2 rounded-full px-6 py-3 text-center text-white shadow-md transition-colors"
+		class="flex flex-row items-center justify-center gap-2 rounded-full bg-garnet-500 px-6 py-3 text-center text-white shadow-md transition-colors hover:bg-garnet-400"
 	>
 		<MdiMap />
 		{$t('scan.back_to_map')}

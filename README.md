@@ -1,78 +1,45 @@
-# Minimal SvelteKit PocketBase
+# uOttawa Explorer
 
 ## Overview
 
-Mobile-first, minimalistic starter template for web applications built with Svelte 5 (Runes mode) and PocketBase designed for fully client-rendered single-page applications (SPAs). This template uses SvelteKit's static adapter and disables server-side rendering (SSR) to focus on client-side rendering (CSR) only. It’s designed to give you a simple foundation for your web applications with essential features and modern UI components.
+Explore the University of Ottawa's campus, see the event schedule, and scan QR codes placed in certain buildings for a change to win the lucky draw.
 
-## Features
+## Stack
 
-- User Authentication:
-  - Sign up with email and password or auth providers
-  - Log in
-  - Forgot password
-  - Log out
-- User Settings:
-  - Change email
-  - Change password
-  - Delete account
-- Theme Switcher: light and dark modes supported
-- Sample Pages:
-  - Notifications page
-  - Create page placeholder
+- SvelteKit (in SPA mode)
+- Pocketbase
+- Tailwind (with DaisyUI for login components)
+- Zod (form validation)
+- Svelte-i18n (localization)
 
-## Screenshots
+## Dev Setup
 
-<img src="static/screenshots/login.png" alt="Login" width="30%"/><br>
-<img src="static/screenshots/home.png" alt="Home" width="30%"/><br>
-<img src="static/screenshots/notifications.png" alt="Notifications" width="30%"/><br>
-<img src="static/screenshots/settings.png" alt="Settings" width="30%"/><br>
-<img src="static/screenshots/delete-account.png" alt="Settings" width="30%"/>
+### 1. Clone the Project:
 
-## Tech Stack
-
-- [SvelteKit](https://kit.svelte.dev/)
-- [Svelte 5](https://svelte-5-preview.vercel.app/docs/introduction)
-- [PocketBase](https://pocketbase.io/)
-- [Zod](https://zod.dev/)
-- [Tailwind CSS](https://tailwindcss.com/)
-- [DaisyUI](https://daisyui.com/)
-- [Unplugin Icons](https://github.com/unplugin/unplugin-icons)
-
-## Setup Instructions
-
-To get started with this template, follow these steps:
-
-### 1. Refer to the PocketBase Documentation
-
-- Ensure you have set up PocketBase according to the [PocketBase documentation](https://pocketbase.io/docs/).
-
-### 2. Clone the Project:
+Create a `.env` file with the Pocketbase URL
 
 ```
-git clone https://github.com/LucaLetizia/minimal-sveltekit-pocketbase.git
-cd minimal-sveltekit-pocketbase
+PUBLIC_POCKETBASE_HOST=http://<your-device-ip>:8090
 ```
 
-### 3. Configure Environment Variables:
-
-- Copy the `.env.example` file to `.env`:
-  ```
-  cp .env.example .env
-  ```
-- Edit `.env` and set the `PUBLIC_POCKETBASE_HOST` variable with your PocketBase host.
-
-### 4. Install Dependencies:
+### 2. Install Dependencies:
 
 ```
 npm install
 ```
 
-### 5. Run the Application Locally:
+### 3. Run Pocketbase:
+
+```
+npm run db
+```
+
+### 4. Run the SPA:
 
 ```
 npm run dev
 ```
 
-## License
+## Deploy Suggestions
 
-This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+The frontend SvelteKit application in SPA mode can be hosted virtually anywhere, as it is fully static. Pocketbase can be hosted either on a VPS or one of the hosting providerse such as [Pockethost](https://pockethost.io/). By building the SvelteKit project with `npm run build` and placing the build in the `/pocketbase/pb_public` directory, Pocketbase will automatically serve the frontend as well.

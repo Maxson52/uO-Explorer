@@ -1,0 +1,16 @@
+{
+	"name": "uOttawa Explorer",
+	"short_name": "uO Explorer",
+	"description": "Découvrez notre campus // Discover our campus",
+	"start_url": "/",
+	"display": "standalone",
+	"background_color": "#ffffff",
+	"theme_color": "#f2f2f2",
+	"icons": [
+		{
+			"src": "/uo_logo.png",
+			"sizes": "256x256",
+			"type": "image/png"
+		}
+	]
+}

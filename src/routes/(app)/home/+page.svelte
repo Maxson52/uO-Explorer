@@ -28,7 +28,7 @@
 	<h1 class="mb-8 mt-4 text-4xl font-bold">{$t('home.schedule')}</h1>
 
 	{#await events then eventData}
-		<div class="space-y-4 pb-20">
+		<div class="space-y-4 pb-[env(safe-area-inset-bottom)]">
 			{#each eventData as event}
 				<div class="rounded-lg border-l-4 border-garnet-500 bg-white p-4 shadow">
 					<div class="flex items-start justify-between">

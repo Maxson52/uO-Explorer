@@ -32,6 +32,11 @@
 	"nav": {
 		"home": "Horraire",
 		"map": "Carte du campus",
+		"donate": "Faire un don",
+		"help": "Aide",
+		"purchase_ring": "Acheter une bague",
+		"emergency": "Urgence",
+		"sponsors": "Commanditaires",
 		"settings": "Paramètres",
 		"change_password": "Changer le mot de passe",
 		"change_email": "Changer l'adresse email",
@@ -63,7 +68,9 @@
 	},
 	"map": {
 		"learn_more": "Pour en savoir plus",
-		"progress": "Découvert {visited} de {total} lieux ({percentage}%)"
+		"progress": "Découvert {visited} de {total} lieux ({percentage}%)",
+		"you_are_here": "Vous êtes ici",
+		"locations": "Lieux"
 	},
 	"home": {
 		"view_map": "Voir la carte du campus",
@@ -100,5 +107,21 @@
 		"hints": {
 			"connection": "Assurez-vous d'être connecté à Internet et rechargez la page"
 		}
+	},
+	"sponsors": {
+		"our_sponsors": "Nos commanditaires",
+		"manulife": "Un groupe international de services financiers de premier plan qui aide les gens à prendre des décisions plus faciles et à vivre mieux.",
+		"belairdirect": "Une compagnie d'assurance canadienne offrant des solutions d'assurance auto et habitation avec des outils numériques innovants et un service personnalisé.",
+		"td": "Engagée à aider les entreprises canadiennes à croître grâce à des solutions bancaires sur mesure et des conseils d'experts."
+	},
+	"help": {
+		"guide": "Guide",
+		"schedule": "Volet Horaire",
+		"schedule_desc": "Consultez l'horaire des événements, planifiez votre journée et profitez pleinement de notre magnifique campus.",
+		"map": "Volet de la Carte du campus",
+		"map_desc": "Carte interactive du campus. Trouvez les bâtiments, événements et commodités. Appuyez sur les lieux pour plus d'informations.",
+		"need_help": "Besoin d'aide?",
+		"contact_us": "Contactez-nous directement",
+		"call": "Appeler"
 	}
 }

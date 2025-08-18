@@ -1,5 +1,4 @@
 <script lang="ts">
-	import MdiMap from '~icons/mdi/map';
 	import MdiCameraSwitch from '~icons/mdi/camera-switch';
 
 	import { t } from 'svelte-i18n';
@@ -15,7 +14,7 @@
 	}
 
 	function onDetect(detectedCodes: DetectedBarcode[]) {
-		detectedCodes.map((code) => (code.rawValue ? goto(`/scan/${code.rawValue}`) : ''));
+		detectedCodes.map((code) => (code.rawValue ? goto(code.rawValue) : ''));
 	}
 
 	function track(detectedCodes: DetectedBarcode[], ctx: CanvasRenderingContext2D) {

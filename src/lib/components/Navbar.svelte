@@ -12,7 +12,7 @@
 	import ChangeLanguage from './ChangeLanguage.svelte';
 	import { accountSettings } from '$lib/constants';
 
-	import { t } from 'svelte-i18n';
+	import { locale, t } from 'svelte-i18n';
 
 	const { pb } = getPocketBaseInstance();
 
@@ -82,17 +82,31 @@
 	</li>
 
 	<li>
-		<a href="/help">Help</a>
-	</li>
-
-	<li>
-		<a href="https://give.uottawa.ca/page/161844/donate/1" target="_blank" rel="noreferrer"
-			>Donate</a
+		<a
+			href="https://www.zeffy.com/en-CA/donation-form/f62f4dd9-f042-480b-9d39-6f1f824486c9"
+			target="_blank"
+			rel="noreferrer">{$t('nav.donate')}</a
 		>
 	</li>
 
 	<li>
-		<a href="tel:613-562-5411">Emergency</a>
+		<a
+			href="https://www.balfour.com/uOttawa?srsltid=AfmBOorXPNrvzr3AMn19jT1crzA-yAv5YVm4oVkR6WmxbsHYeSl11Vtd"
+			target="_blank"
+			rel="noreferrer">{$t('nav.purchase_ring')}</a
+		>
+	</li>
+
+	<li>
+		<a href="tel:613-562-5411">{$t('nav.emergency')}</a>
+	</li>
+
+	<li>
+		<a href="/sponsors" onclick={() => (isDrawerOpen = !isDrawerOpen)}>{$t('nav.sponsors')}</a>
+	</li>
+
+	<li>
+		<a href="/help" onclick={() => (isDrawerOpen = !isDrawerOpen)}>{$t('nav.help')}</a>
 	</li>
 
 	<hr class="my-4" />
@@ -129,6 +143,17 @@
 			<span>{$t('nav.log_out')}</span>
 		</button>
 	</li>
+
+	<div class="relative h-full">
+		<footer class="fixed bottom-4 right-0 flex w-full items-center justify-center gap-2">
+			<span class="font-semibold">{$t('auth.powered_by')}</span>
+			<img
+				src={$locale == 'fr' ? '/CGEC_black.svg' : '/CEED_black.svg'}
+				alt="Organization Logo"
+				class="h-5"
+			/>
+		</footer>
+	</div>
 {/snippet}
 
 {#snippet overlaySnippet()}
@@ -143,8 +168,7 @@
 
 <style>
 	.btm-nav {
-		height: 4rem;
-		padding-bottom: env(safe-area-inset-bottom, 0);
+		height: calc(4rem + env(safe-area-inset-bottom));
 	}
 
 	.btm-nav > * {

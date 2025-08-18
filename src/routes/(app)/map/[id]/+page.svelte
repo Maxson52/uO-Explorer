@@ -72,9 +72,13 @@
 			</h1>
 
 			<div class="mt-4 max-w-none whitespace-pre-line leading-7 text-gray-700">
-				{$locale === 'fr'
+				{@html ($locale === 'fr'
 					? location.description_fr || location.description_preview_fr
-					: location.description_en || location.description_preview_en}
+					: location.description_en || location.description_preview_en
+				).replace(
+					/(https?:\/\/[^\s]+)/g,
+					'<a href="$1" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">$1</a>'
+				)}
 			</div>
 		</div>
 	{:else}
@@ -82,8 +86,8 @@
 	{/if}
 </div>
 
-{#if !loading && !location?.is_custom}
-	<div class="fixed bottom-20 right-4 z-50">
+{#if !loading && location?.has_qr_code}
+	<div class="fixed bottom-[calc(5rem+env(safe-area-inset-bottom))] right-4 z-50">
 		<a
 			href="/scan"
 			class="flex h-14 w-14 items-center justify-center rounded-full bg-garnet-500 p-3 shadow-lg transition-all hover:bg-garnet-400 hover:shadow-xl focus:outline-none focus:ring-2 focus:ring-garnet-400 focus:ring-opacity-75"

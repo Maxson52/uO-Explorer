@@ -33,7 +33,7 @@
 </script>
 
 {#if pb.authStore.isValid}
-	<div class="flex flex-col min-h-screen pb-16 bg-base-200 lg:pb-0">
+	<div class="flex min-h-[100dvh] flex-col bg-base-200 pb-16 lg:pb-0">
 		<Navbar></Navbar>
 		{@render children()}
 	</div>

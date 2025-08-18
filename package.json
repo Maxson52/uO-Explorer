@@ -1,10 +1,10 @@
 {
-	"name": "minimal-sveltekit-pocketbase",
+	"name": "uo-explorer",
 	"version": "0.0.1",
 	"private": true,
-	"license": "MIT",
 	"scripts": {
 		"dev": "vite dev --host",
+		"db": "cd pocketbase && pocketbase.exe serve --http=0.0.0.0:8090",
 		"build": "vite build",
 		"preview": "vite preview",
 		"check": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",

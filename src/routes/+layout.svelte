@@ -14,7 +14,7 @@
 	import { goto } from '$app/navigation';
 
 	$effect(() => {
-		if (!online.current) goto('/offline');
+		if (!online.current) goto('/error');
 	});
 </script>
 

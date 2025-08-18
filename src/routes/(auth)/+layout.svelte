@@ -31,14 +31,14 @@
 </script>
 
 {#if !pb.authStore.isValid}
-	<div class="flex min-h-screen flex-col">
+	<div class="flex min-h-[100dvh] flex-col">
 		<div class="flex flex-grow items-center justify-center bg-base-200">
 			{@render children()}
 		</div>
 	</div>
 
 	<div class="relative h-full">
-		<footer class="absolute bottom-4 flex w-full items-center justify-center gap-2 text-sm">
+		<footer class="fixed bottom-6 flex w-full items-center justify-center gap-2">
 			<span class="text-lg font-semibold">{$t('auth.powered_by')}</span>
 			<img
 				src={$locale == 'fr' ? '/CGEC_black.svg' : '/CEED_black.svg'}
