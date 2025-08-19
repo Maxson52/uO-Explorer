@@ -17,5 +17,5 @@ jobs:
       - name: Build
         run: npm run build
         env:
-          VITE_API_URL: ${{ secrets.PUBLIC_POCKETBASE_HOST }}
-          VITE_OTHER_KEY: ${{ secrets.PUBLIC_OPENROUTE_API_KEY }}
+          PUBLIC_POCKETBASE_HOST: ${{ secrets.PUBLIC_POCKETBASE_HOST }}
+          PUBLIC_OPENROUTE_API_KEY: ${{ secrets.PUBLIC_OPENROUTE_API_KEY }}
