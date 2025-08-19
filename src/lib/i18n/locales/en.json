@@ -76,7 +76,8 @@
 		"view_map": "See the Campus Map",
 		"schedule": "Schedule",
 		"start": "From",
-		"end": "Until"
+		"end": "Until",
+		"where": "Where"
 	},
 	"scan": {
 		"title": "Scan the QR Codes placed throughout the campus to gain entries to the lucky draw!",

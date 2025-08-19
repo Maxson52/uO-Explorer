@@ -1,12 +1,11 @@
 <script lang="ts">
-	import MdiMap from '~icons/mdi/map';
-
 	import { getPocketBaseInstance } from '$lib/states/pocketbase.svelte';
 	import { locale, t } from 'svelte-i18n';
 	const { pb } = getPocketBaseInstance();
 
 	let events = pb.collection('events').getFullList({
-		sort: 'start_time'
+		sort: 'start_time',
+		expand: 'location_id'
 	});
 
 	// localize date
@@ -56,6 +55,17 @@
 							<span class="block">{formatDate(event.end_time)}</span>
 						</div>
 					</div>
+
+					{#if event.location_id && event?.expand?.location_id}
+						<div class="mt-3 text-sm">
+							<span class="font-medium text-gray-500">{$t('home.where')}:</span>
+							<a href={`/map?location_id=${event.location_id}`} class="link text-garnet-500"
+								>{$locale == 'en'
+									? event.expand.location_id.name_en
+									: event.expand.location_id.name_fr}</a
+							>
+						</div>
+					{/if}
 				</div>
 			{/each}
 		</div>

@@ -76,7 +76,8 @@
 		"view_map": "Voir la carte du campus",
 		"schedule": "Programme",
 		"start": "À partir",
-		"end": "Jusqu'à"
+		"end": "Jusqu'à",
+		"where": "Ou"
 	},
 	"scan": {
 		"title": "Scannez les codes QR placés sur le campus pour obtenir des participations au tirage au sort!",

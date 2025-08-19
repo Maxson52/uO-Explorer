@@ -4,7 +4,6 @@
 		TileLayer,
 		Marker,
 		Popup,
-		Control,
 		Circle,
 		ControlZoom,
 		Icon,
@@ -18,9 +17,12 @@
 	import { PUBLIC_POCKETBASE_HOST, PUBLIC_OPENROUTE_API_KEY } from '$env/static/public';
 	import { boundaries } from '$lib/uottawa-geo';
 	import { slide } from 'svelte/transition';
+	import { page } from '$app/state';
 	const { pb } = getPocketBaseInstance();
 
-	const locationsPromise = pb.collection('locations').getFullList();
+	const locationsPromise = pb.collection('locations').getFullList({
+		sort: 'name_en'
+	});
 	const visitsPromise = pb.collection('visits').getFullList();
 	const data = Promise.all([locationsPromise, visitsPromise]);
 
@@ -28,9 +30,9 @@
 	function getLocation() {
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition((pos) => {
-				userPosition = [45.421827, -75.682967];
-				// userPosition = [pos.coords.latitude, pos.coords.longitude];
-				// setTimeout(getLocation, 15000);
+				// userPosition = [45.421827, -75.682967];
+				userPosition = [pos.coords.latitude, pos.coords.longitude];
+				setTimeout(getLocation, 15000);
 			});
 		}
 	}
@@ -64,8 +66,13 @@
 		}
 	});
 
-	onMount(() => {
+	onMount(async () => {
 		getLocation();
+
+		if (page.url.searchParams.get('location_id'))
+			selectedLocation = (await locationsPromise).find(
+				(location) => location.id === page.url.searchParams.get('location_id')
+			);
 	});
 
 	let showMenu = $state(false);
