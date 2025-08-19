@@ -1,0 +1,21 @@
+name: Build static site to pb_public
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Install dependencies
+        run: npm install
+
+      - name: Build
+        run: npm run build
+        env:
+          VITE_API_URL: ${{ secrets.PUBLIC_POCKETBASE_HOST }}
+          VITE_OTHER_KEY: ${{ secrets.PUBLIC_OPENROUTE_API_KEY }}
