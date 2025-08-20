@@ -48,7 +48,8 @@
 	});
 
 	onMount(() => {
-		if (!localStorage.getItem('tour-completed') && page.url.pathname == '/home') tg.start();
+		if (!localStorage.getItem('tour-completed') && page.url.pathname == '/home')
+			setTimeout(() => tg.start(), 150);
 	});
 
 	tg.onAfterExit(() => {

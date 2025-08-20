@@ -80,7 +80,8 @@
 		"where": "Where"
 	},
 	"scan": {
-		"title": "Scan the QR Codes placed throughout the campus to gain entries to the lucky draw!",
+		"title": "Scan",
+		"description": "Scan the QR Codes placed throughout the campus to gain entries to the lucky draw!",
 		"camera_permission": "Please enable camera permissions to begin scanning",
 		"back_to_map": "Back to Map",
 		"draw_entered": "+1 Entry to the lucky draw",

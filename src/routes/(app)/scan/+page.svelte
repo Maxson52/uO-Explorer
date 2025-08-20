@@ -14,7 +14,16 @@
 	}
 
 	function onDetect(detectedCodes: DetectedBarcode[]) {
-		detectedCodes.map((code) => (code.rawValue ? goto(code.rawValue) : ''));
+		detectedCodes.map((code) => {
+			if (!code.rawValue) return;
+
+			const value = code.rawValue.trim();
+			if (value.startsWith('http://') || value.startsWith('https://')) {
+				goto(value);
+			} else {
+				goto(`/scan/${value}`);
+			}
+		});
 	}
 
 	function track(detectedCodes: DetectedBarcode[], ctx: CanvasRenderingContext2D) {
@@ -60,10 +69,12 @@
 	let selectedConstraints = $state({ facingMode: 'environment' });
 </script>
 
-<div class="mx-auto max-w-[720px] px-2">
-	<div class="mt-4 text-center text-lg">
-		{$t('scan.title')}
-	</div>
+<div class="container mx-auto max-w-3xl p-4">
+	<h1 class="mb-8 mt-4 text-4xl font-bold">{$t('scan.title')}</h1>
+
+	<p class="mt-4 text-lg">
+		{$t('scan.description')}
+	</p>
 
 	<div class="my-4" style="width: 100%; aspect-ratio: 4/3;">
 		<BarqodeStream constraints={selectedConstraints} {onCameraOn} {onDetect} {track} {onError}>

@@ -80,7 +80,8 @@
 		"where": "Ou"
 	},
 	"scan": {
-		"title": "Scannez les codes QR placés sur le campus pour obtenir des participations au tirage au sort!",
+		"title": "Scannez",
+		"description": "Scannez les codes QR placés sur le campus pour obtenir des participations au tirage au sort!",
 		"camera_permission": "Veuillez activer les permissions de la caméra pour commencer le scan",
 		"back_to_map": "Retour à la carte",
 		"draw_entered": "+1 Participation au tirage",
