@@ -23,9 +23,9 @@
 	};
 </script>
 
-<div class="tour-step-1 container mx-auto max-w-3xl p-4">
+<div class="container mx-auto max-w-3xl p-4">
 	<!-- Schedule section -->
-	<h1 class="mb-8 mt-4 text-4xl font-bold">{$t('home.schedule')}</h1>
+	<h1 class="tour-step-1 mb-8 mt-4 text-4xl font-bold">{$t('home.schedule')}</h1>
 
 	<div class="space-y-4 pb-[env(safe-area-inset-bottom)]">
 		{#await events}

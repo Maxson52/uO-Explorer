@@ -2,6 +2,7 @@
 	import '../app.css';
 	import { type Snippet } from 'svelte';
 	import { t } from 'svelte-i18n';
+	import SplashScreen from '$lib/components/SplashScreen.svelte';
 	let {
 		children
 	}: {
@@ -22,3 +23,4 @@
 	<title>{$t('site_name')}</title>
 </svelte:head>
 {@render children()}
+<SplashScreen />
