@@ -21,6 +21,13 @@
 				{$t('help.map_desc')}
 			</p>
 		</div>
+
+		<div class="mb-6">
+			<h3 class="mb-1 text-xl font-medium">📍 {$t('help.location')}</h3>
+			<p class="text-gray-700">
+				{$t('help.location_desc')}
+			</p>
+		</div>
 	</div>
 
 	<div>

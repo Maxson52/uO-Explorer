@@ -3,6 +3,7 @@
 	import { goto } from '$app/navigation';
 	import { setPocketBaseInstance, getPocketBaseInstance } from '$lib/states/pocketbase.svelte';
 	import { locale, t } from 'svelte-i18n';
+	import AddToHomescreen from '$lib/components/AddToHomescreen.svelte';
 
 	setPocketBaseInstance();
 	const { pb } = getPocketBaseInstance();
@@ -29,6 +30,8 @@
 		data: any[];
 	} = $props();
 </script>
+
+<AddToHomescreen />
 
 {#if !pb.authStore.isValid}
 	<div class="flex min-h-[100dvh] flex-col">

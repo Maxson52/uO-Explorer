@@ -7,6 +7,7 @@
 	import { page } from '$app/state';
 	import { PUBLIC_POCKETBASE_HOST } from '$env/static/public';
 	import Loading from '$lib/components/Loading.svelte';
+	import { Confetti } from 'svelte-confetti';
 
 	const { pb } = getPocketBaseInstance();
 
@@ -49,7 +50,7 @@
 	{:else}
 		<div class="mb-4 border-l-4 border-green-500 bg-green-100 p-4 text-green-700" role="alert">
 			{#if location.image}
-				<div class="relative aspect-[4/3] w-full overflow-hidden rounded-lg shadow-md md:max-h-64">
+				<div class="aspect-[4/3] w-full overflow-hidden rounded-lg shadow-md md:max-h-64">
 					<img
 						src={`${PUBLIC_POCKETBASE_HOST}/api/files/locations/${location.id}/${location.image}`}
 						alt={$locale === 'fr' ? location.name_fr : location.name_en}
@@ -58,9 +59,7 @@
 				</div>
 			{:else}
 				<!-- Default image -->
-				<div
-					class="relative aspect-[4/3] w-full overflow-hidden rounded-lg bg-gray-100 md:max-h-64"
-				>
+				<div class="aspect-[4/3] w-full overflow-hidden rounded-lg bg-gray-100 md:max-h-64">
 					<img
 						src="/default-uottawa.jpg"
 						alt="Default location"
@@ -69,11 +68,20 @@
 				</div>
 			{/if}
 
+			<div class="absolute left-1/2">
+				<Confetti delay={[0, 1500]} amount={150} />
+			</div>
+
 			<p class="mt-4 text-xl font-bold">
 				{$locale == 'en' ? location.name_en : location.name_fr}
 				{$t('scan.scanned')}!
 			</p>
-			<p>{$t('scan.draw_entered')}</p>
+			<p class="py-2">{$t('scan.draw_entered')}</p>
+			{#if location.text_on_scan_en}
+				<p class="italic">
+					{$locale == 'en' ? location.text_on_scan_en : location.text_on_scan_fr}
+				</p>
+			{/if}
 		</div>
 	{/if}
 

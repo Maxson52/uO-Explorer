@@ -12,7 +12,7 @@ Explore the University of Ottawa's campus, see the event schedule, and scan QR c
 - Zod (form validation)
 - Svelte-i18n (localization)
 
-## Dev Setup
+## Dev Setup (Windows only)
 
 ### 1. Clone the Project:
 
@@ -40,6 +40,9 @@ npm run db
 npm run dev
 ```
 
+> for Linux or MacOS setup, consult the [Pocketbase docs](https://pocketbase.io/docs/)
+
 ## Deploy Suggestions
 
-The frontend SvelteKit application in SPA mode can be hosted virtually anywhere, as it is fully static. Pocketbase can be hosted either on a VPS or one of the hosting providerse such as [Pockethost](https://pockethost.io/). By building the SvelteKit project with `npm run build` and placing the build in the `/pocketbase/pb_public` directory, Pocketbase will automatically serve the frontend as well.
+The frontend SvelteKit application in SPA mode can be hosted virtually anywhere, since it is fully static. Pocketbase can be hosted either on a VPS or one of the hosting providers such as [Pockethost](https://pockethost.io/). By building the SvelteKit project with `npm run build` and placing the build in the `/pocketbase/pb_public` directory, Pocketbase will automatically serve the frontend as well.
+As of 2025-08-20, we are using a GitHub action to build the frontend into the `/pocketbase/pb_public` directory and deploying to the Makerepo VPS using the Pocketbase docker image.

@@ -118,9 +118,11 @@
 	"help": {
 		"guide": "Guide",
 		"schedule": "Schedule Tab",
-		"schedule_desc": "View the events schedule, plan your day, and have a blast at our lovely campus.",
+		"schedule_desc": "This tab displays the full plan of events, including their times and venues. Each event's location is a clickable link that will show you exactly where it is on the interactive map, helping you navigate the campus easily.",
 		"map": "Campus Map Tab",
-		"map_desc": "Interactive map of the campus. Find buildings, events, and amenities. Tap locations for more information.",
+		"map_desc": "Use the interactive map to explore the campus. The 'Locations' button at the top provides quick shortcuts to important spots. Tap any pin to see a brief description, then tap 'Learn More' for full details. The red circle shows your current location to help you navigate.",
+		"location": "'Learn More' about a Location",
+		"location_desc": "After clicking 'Learn More' from the campus map, you can read a detailed description of this location. To gain an entry to the lucky draw, tap the camera icon in the bottom right to scan the QR code placed at this tour stop.",
 		"need_help": "Need Help?",
 		"contact_us": "Contact us directly",
 		"call": "Call"
@@ -145,6 +147,41 @@
 			"4": {
 				"title": "More Options & Help",
 				"body": "Click 'More' in the navbar to change the language, find quick links to important resources, and get additional help if you need it. Enjoy your tour!"
+			}
+		}
+	},
+	"install": {
+		"title": "Install Our App",
+		"description": "Get the best experience with our app installed on your device!",
+		"close": "Close",
+		"button": {
+			"install": "Install Now",
+			"later": "Maybe Later"
+		},
+		"instructions": {
+			"ios": {
+				"step1": "Tap the Share button",
+				"step2": "Scroll down and tap \"Add to Home Screen\"",
+				"step3": "Tap \"Add\" to install"
+			},
+			"chrome": {
+				"step1": "Tap the menu (⋮)",
+				"step2": "Select \"Add to Home screen\"",
+				"step3": "Tap \"Add\" to install"
+			},
+			"firefox": {
+				"step1": "Tap the menu (⋮)",
+				"step2": "Select \"Install\"",
+				"step3": "Confirm installation"
+			},
+			"edge": {
+				"step1": "Tap the menu (⋯)",
+				"step2": "Select \"Add to phone\"",
+				"step3": "Tap \"Add\" to install"
+			},
+			"generic": {
+				"step1": "Look for \"Add to Home Screen\" in your browser menu",
+				"step2": "Follow the prompts to install"
 			}
 		}
 	}

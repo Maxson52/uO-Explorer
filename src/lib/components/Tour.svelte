@@ -48,11 +48,11 @@
 	});
 
 	onMount(() => {
-		if (!localStorage.getItem('tourCompleted') && page.url.pathname == '/home') tg.start();
+		if (!localStorage.getItem('tour-completed') && page.url.pathname == '/home') tg.start();
 	});
 
 	tg.onAfterExit(() => {
-		localStorage.setItem('tourCompleted', 'true');
+		localStorage.setItem('tour-completed', 'true');
 	});
 
 	afterNavigate((nav) => {

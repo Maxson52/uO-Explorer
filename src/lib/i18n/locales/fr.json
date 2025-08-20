@@ -67,7 +67,7 @@
 		}
 	},
 	"map": {
-		"learn_more": "Pour en savoir plus",
+		"learn_more": "En savoir plus",
 		"progress": "Découvert {visited} de {total} lieux ({percentage}%)",
 		"you_are_here": "Vous êtes ici",
 		"locations": "Lieux"
@@ -117,10 +117,12 @@
 	},
 	"help": {
 		"guide": "Guide",
-		"schedule": "Volet Horaire",
-		"schedule_desc": "Consultez l'horaire des événements, planifiez votre journée et profitez pleinement de notre magnifique campus.",
+		"schedule": "Volet Programme",
+		"schedule_desc": "Cet onglet affiche le programme complet des événements, avec leurs horaires et leurs lieux. L'emplacement de chaque événement est un lien cliquable qui vous montre exactement où il se trouve sur la carte interactive, vous aidant à vous repérer sur le campus.",
 		"map": "Volet de la Carte du campus",
-		"map_desc": "Carte interactive du campus. Trouvez les bâtiments, événements et commodités. Appuyez sur les lieux pour plus d'informations.",
+		"map_desc": "Utilisez la carte interactive pour explorer le campus. Le bouton 'Lieux' en haut offre un accès rapide aux endroits importants. Appuyez sur une épingle pour voir une brève description, puis appuyez sur 'En savoir plus' pour obtenir tous les détails. Le cercle rouge indique votre position actuelle pour vous guider.",
+		"location": "'En savoir plus' sur un lieu",
+		"location_desc": "Après avoir cliqué sur 'En savoir plus' depuis la carte du campus, vous pouvez lire une description détaillée de ce lieu. Pour participer au tirage au sort, appuyez sur l'icône d'appareil photo en bas à droite pour scanner le code QR placé à cette étape de la visite.",
 		"need_help": "Besoin d'aide?",
 		"contact_us": "Contactez-nous directement",
 		"call": "Appeler"
@@ -145,6 +147,41 @@
 			"4": {
 				"title": "Plus d'options et d'aide",
 				"body": "Cliquez sur 'Plus' dans la barre de navigation pour changer la langue, trouver des liens rapides vers des ressources importantes et obtenir de l'aide supplémentaire si nécessaire. Bonne visite !"
+			}
+		}
+	},
+	"install": {
+		"title": "Installer Notre App",
+		"description": "Obtenez la meilleure expérience avec notre application installée sur votre appareil !",
+		"close": "Fermer",
+		"button": {
+			"install": "Installer Maintenant",
+			"later": "Peut-être Plus Tard"
+		},
+		"instructions": {
+			"ios": {
+				"step1": "Appuyez sur le bouton Partager",
+				"step2": "Faites défiler vers le bas et appuyez sur \"Sur l'écran d'accueil\"",
+				"step3": "Appuyez sur \"Ajouter\" pour installer"
+			},
+			"chrome": {
+				"step1": "Appuyez sur le menu (⋮)",
+				"step2": "Sélectionnez \"Ajouter à l'écran d'accueil\"",
+				"step3": "Appuyez sur \"Ajouter\" pour installer"
+			},
+			"firefox": {
+				"step1": "Appuyez sur le menu (⋮)",
+				"step2": "Sélectionnez \"Installer\"",
+				"step3": "Confirmez l'installation"
+			},
+			"edge": {
+				"step1": "Appuyez sur le menu (⋯)",
+				"step2": "Sélectionnez \"Ajouter au téléphone\"",
+				"step3": "Appuyez sur \"Ajouter\" pour installer"
+			},
+			"generic": {
+				"step1": "Recherchez \"Ajouter à l'écran d'accueil\" dans le menu de votre navigateur",
+				"step2": "Suivez les instructions pour installer"
 			}
 		}
 	}
