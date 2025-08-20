@@ -14,7 +14,6 @@
 		const date = new Date(dateString);
 		// @ts-ignore
 		return date.toLocaleDateString($locale, {
-			weekday: 'short',
 			month: 'short',
 			day: 'numeric',
 			hour: '2-digit',
@@ -31,13 +30,13 @@
 		{#await events}
 			<!-- skeleton load -->
 			{#each Array(3) as _}
-				<div class="animate-pulse rounded-lg border-l-4 border-gray-300 bg-white p-4 shadow">
+				<div class="rounded-lg border-l-4 border-gray-300 bg-white p-4 shadow">
 					<div class="flex items-start justify-between">
-						<div class="h-6 w-3/4 rounded bg-gray-300"></div>
+						<div class="skeleton h-6 w-3/4 rounded bg-gray-300"></div>
 					</div>
 
 					<div class="mb-2 mt-1 space-y-2">
-						<div class="h-4 w-full rounded-full bg-gray-200"></div>
+						<div class="skeleton h-4 w-full rounded-full bg-gray-200"></div>
 						<div class="h-4 w-3/4 rounded-full bg-gray-200"></div>
 					</div>
 
