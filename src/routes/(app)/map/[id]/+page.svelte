@@ -8,6 +8,7 @@
 	import { onMount } from 'svelte';
 	import { PUBLIC_POCKETBASE_HOST } from '$env/static/public';
 	import { goto } from '$app/navigation';
+	import Loading from '$lib/components/Loading.svelte';
 
 	const { pb } = getPocketBaseInstance();
 	let location: any = null;
@@ -35,9 +36,7 @@
 
 <div class="mx-auto min-h-screen w-full max-w-[720px] bg-gray-50 pb-20">
 	{#if loading}
-		<div class="flex h-screen items-center justify-center">
-			<div class="animate-pulse text-gray-500">{$t('loading')}...</div>
-		</div>
+		<Loading />
 	{:else if error}
 		<div class="p-4 text-red-500">{error}</div>
 	{:else if location}

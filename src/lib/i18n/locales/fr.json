@@ -124,5 +124,28 @@
 		"need_help": "Besoin d'aide?",
 		"contact_us": "Contactez-nous directement",
 		"call": "Appeler"
+	},
+	"tour": {
+		"next": "Prochain",
+		"previous": "Précédent",
+		"finish": "Fini",
+		"steps": {
+			"1": {
+				"title": "Bienvenue sur uOttawa Explorer 👋",
+				"body": "Bienvenue ! Voici la page d'horaire, votre centre pour tous les événements à venir. Ici, vous pouvez facilement trouver ce qui se passe, ainsi que leurs heures prévues et leurs emplacements."
+			},
+			"2": {
+				"title": "Explorez la carte",
+				"body": "Ensuite, cliquez sur le bouton 'Carte du campus' dans la barre de navigation. C'est ici que vous trouverez la carte interactive pour explorer notre magnifique campus."
+			},
+			"3": {
+				"title": "Utiliser la carte interactive",
+				"body": "Voici la carte interactive ! Cliquez sur n'importe quelle épingle pour voir un lieu, en savoir plus à son sujet ou utiliser le menu déroulant pour vous y rendre directement. Suivez votre progression avec la barre en haut. Le cercle rouge indique votre position actuelle !"
+			},
+			"4": {
+				"title": "Plus d'options et d'aide",
+				"body": "Cliquez sur 'Plus' dans la barre de navigation pour changer la langue, trouver des liens rapides vers des ressources importantes et obtenir de l'aide supplémentaire si nécessaire. Bonne visite !"
+			}
+		}
 	}
 }

@@ -36,7 +36,7 @@
 
 	<a
 		href="/map"
-		class="flex flex-col items-center {isActiveRoute('/map')
+		class="tour-step-2 flex flex-col items-center {isActiveRoute('/map')
 			? 'active text-garnet-500'
 			: 'text-base-content/70'}"
 	>
@@ -45,7 +45,7 @@
 	</a>
 
 	<button
-		class="flex flex-col items-center {isDrawerOpen
+		class="tour-step-3 flex flex-col items-center {isDrawerOpen
 			? 'active text-garnet-500'
 			: 'text-base-content/70'}"
 		onclick={() => (isDrawerOpen = !isDrawerOpen)}

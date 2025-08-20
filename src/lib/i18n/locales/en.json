@@ -124,5 +124,28 @@
 		"need_help": "Need Help?",
 		"contact_us": "Contact us directly",
 		"call": "Call"
+	},
+	"tour": {
+		"next": "Next",
+		"previous": "Back",
+		"finish": "Finish",
+		"steps": {
+			"1": {
+				"title": "Welcome to uOttawa Explorer 👋",
+				"body": "Welcome! This is the Schedule page, your hub for all upcoming events. Here you can easily find what's happening, along with their scheduled times and locations."
+			},
+			"2": {
+				"title": "Explore the Map",
+				"body": "Next, click the 'Campus Map' button in the navigation bar. This is where you'll find the interactive map to explore our beautiful campus."
+			},
+			"3": {
+				"title": "Using the Interactive Map",
+				"body": "This is the interactive map! Click on any pin to view a location, learn more about it, or use the dropdown menu to navigate directly. Track your tour progress with the bar at the top. The red circle shows your current location!"
+			},
+			"4": {
+				"title": "More Options & Help",
+				"body": "Click 'More' in the navbar to change the language, find quick links to important resources, and get additional help if you need it. Enjoy your tour!"
+			}
+		}
 	}
 }

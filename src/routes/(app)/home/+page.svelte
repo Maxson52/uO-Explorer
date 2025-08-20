@@ -1,4 +1,5 @@
 <script lang="ts">
+	import Loading from '$lib/components/Loading.svelte';
 	import { getPocketBaseInstance } from '$lib/states/pocketbase.svelte';
 	import { locale, t } from 'svelte-i18n';
 	const { pb } = getPocketBaseInstance();
@@ -22,11 +23,13 @@
 	};
 </script>
 
-<div class="container mx-auto max-w-3xl p-4">
+<div class="tour-step-1 container mx-auto max-w-3xl p-4">
 	<!-- Schedule section -->
 	<h1 class="mb-8 mt-4 text-4xl font-bold">{$t('home.schedule')}</h1>
 
-	{#await events then eventData}
+	{#await events}
+		<Loading />
+	{:then eventData}
 		<div class="space-y-4 pb-[env(safe-area-inset-bottom)]">
 			{#each eventData as event}
 				<div class="rounded-lg border-l-4 border-garnet-500 bg-white p-4 shadow">

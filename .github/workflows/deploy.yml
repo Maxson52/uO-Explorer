@@ -23,11 +23,3 @@ jobs:
         env:
           PUBLIC_POCKETBASE_HOST: ${{ secrets.PUBLIC_POCKETBASE_HOST }}
           PUBLIC_OPENROUTE_API_KEY: ${{ secrets.PUBLIC_OPENROUTE_API_KEY }}
-
-      - name: Commit and Push built files
-        uses: EndBug/add-and-commit@v9
-        with:
-          author_name: github-actions[bot]
-          author_email: github-actions[bot]@users.noreply.github.com
-          message: 'Build static site'
-          add: 'pocketbase/pb_public'

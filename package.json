@@ -38,6 +38,7 @@
 	},
 	"type": "module",
 	"dependencies": {
+		"@sjmc11/tourguidejs": "^0.0.27",
 		"barqode": "^0.0.2",
 		"pocketbase": "^0.25.1",
 		"sveaflet": "^0.1.4",

@@ -71,11 +71,11 @@
 				<div class="my-auto px-4 text-center font-bold">{$t('scan.camera_permission')}</div>
 			{:else}
 				<button
-					class="absolute bottom-2 left-1/2 -translate-x-1/2 rounded-full border-4 border-white bg-transparent p-4 text-center text-lg text-white shadow-md transition-colors hover:border-gray-400"
+					class="absolute bottom-2 left-1/2 -translate-x-1/2 rounded-full border-4 border-white bg-transparent p-4 text-center text-lg text-white shadow-md transition-colors active:border-gray-400 active:text-gray-400"
 					onclick={() =>
 						selectedConstraints.facingMode == 'environment'
-							? (selectedConstraints.facingMode = 'user')
-							: (selectedConstraints.facingMode = 'environment')}
+							? (selectedConstraints = { facingMode: 'user' })
+							: (selectedConstraints = { facingMode: 'environment' })}
 				>
 					<MdiCameraSwitch />
 				</button>

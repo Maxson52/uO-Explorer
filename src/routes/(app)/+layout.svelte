@@ -3,6 +3,7 @@
 	import { goto } from '$app/navigation';
 	import { setPocketBaseInstance, getPocketBaseInstance } from '$lib/states/pocketbase.svelte';
 	import Navbar from '$lib/components/Navbar.svelte';
+	import Tour from '$lib/components/Tour.svelte';
 
 	setPocketBaseInstance();
 	const { pb } = getPocketBaseInstance();
@@ -36,5 +37,7 @@
 	<div class="flex min-h-[100dvh] flex-col bg-base-200 pb-16 lg:pb-0">
 		<Navbar></Navbar>
 		{@render children()}
+
+		<Tour />
 	</div>
 {/if}

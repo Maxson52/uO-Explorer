@@ -6,6 +6,7 @@
 	import { t, locale } from 'svelte-i18n';
 	import { page } from '$app/state';
 	import { PUBLIC_POCKETBASE_HOST } from '$env/static/public';
+	import Loading from '$lib/components/Loading.svelte';
 
 	const { pb } = getPocketBaseInstance();
 
@@ -39,9 +40,7 @@
 
 <div class="container mx-auto p-4 text-center">
 	{#if loading}
-		<div class="flex h-screen items-center justify-center">
-			<div class="animate-pulse text-gray-500">{$t('loading')}...</div>
-		</div>
+		<Loading />
 	{:else if error || !location}
 		<div class="mb-4 border-l-4 border-red-500 bg-red-100 p-4 text-red-700" role="alert">
 			<p class="font-bold">{$t('scan.invalid_qr')}</p>

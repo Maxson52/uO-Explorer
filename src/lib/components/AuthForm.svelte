@@ -27,7 +27,10 @@
 	let alertType: string = $state('');
 	let alertMessage: string = $state('');
 
+	let authing = $state(false);
+
 	const handleSignUpClick = async () => {
+		authing = true;
 		try {
 			formErrors = {};
 			signUpSchema.parse({ email, name, password, confirmPassword });
@@ -51,10 +54,13 @@
 				alertType = 'error';
 				alertMessage = (e as Error)?.message;
 			}
+		} finally {
+			authing = false;
 		}
 	};
 
 	const handleLoginClick = async () => {
+		authing = true;
 		try {
 			formErrors = {};
 			loginSchema.parse({ email, password });
@@ -70,6 +76,8 @@
 				// alertMessage = (e as Error)?.message;
 				alertMessage = $t('auth.wrong_info');
 			}
+		} finally {
+			authing = false;
 		}
 	};
 </script>
@@ -195,7 +203,7 @@
 					type="button"
 					class="btn w-full bg-garnet-500 text-white"
 					onclick={signUp ? handleSignUpClick : handleLoginClick}
-					>{signUp ? $t('auth.sign_up.button') : $t('auth.login.button')}</button
+					disabled={authing}>{signUp ? $t('auth.sign_up.button') : $t('auth.login.button')}</button
 				>
 			</div>
 			{#if !signUp}

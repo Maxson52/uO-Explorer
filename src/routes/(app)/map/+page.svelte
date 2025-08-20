@@ -99,14 +99,16 @@
 				}
 			})}
 		</div>
-		<div
-			class="h-3 rounded-full bg-gradient-to-r from-garnet-400 to-garnet-500 transition-all duration-500"
-			style={`width: ${progressPercentage}%`}
-			aria-valuenow={progressPercentage}
-			aria-valuemin="0"
-			aria-valuemax="100"
-		>
-			<span class="sr-only">{progressPercentage}% complete</span>
+		<div class="h-3 w-full rounded-full bg-gray-200">
+			<div
+				class="h-3 rounded-full bg-gradient-to-r from-garnet-400 to-garnet-500 transition-all duration-500"
+				style={`width: ${progressPercentage}%`}
+				aria-valuenow={progressPercentage}
+				aria-valuemin="0"
+				aria-valuemax="100"
+			>
+				<span class="sr-only">{progressPercentage}% complete</span>
+			</div>
 		</div>
 	{/await}
 </div>
