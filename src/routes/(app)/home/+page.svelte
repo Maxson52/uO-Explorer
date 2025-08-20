@@ -27,10 +27,33 @@
 	<!-- Schedule section -->
 	<h1 class="mb-8 mt-4 text-4xl font-bold">{$t('home.schedule')}</h1>
 
-	{#await events}
-		<Loading />
-	{:then eventData}
-		<div class="space-y-4 pb-[env(safe-area-inset-bottom)]">
+	<div class="space-y-4 pb-[env(safe-area-inset-bottom)]">
+		{#await events}
+			<!-- skeleton load -->
+			{#each Array(3) as _}
+				<div class="animate-pulse rounded-lg border-l-4 border-gray-300 bg-white p-4 shadow">
+					<div class="flex items-start justify-between">
+						<div class="h-6 w-3/4 rounded bg-gray-300"></div>
+					</div>
+
+					<div class="mb-2 mt-1 space-y-2">
+						<div class="h-4 w-full rounded-full bg-gray-200"></div>
+						<div class="h-4 w-3/4 rounded-full bg-gray-200"></div>
+					</div>
+
+					<div class="mt-3 grid grid-cols-2 gap-2">
+						<div>
+							<div class="mb-1 h-4 w-12 rounded-full bg-gray-300"></div>
+							<div class="h-4 w-20 rounded-full bg-gray-200"></div>
+						</div>
+						<div>
+							<div class="mb-1 h-4 w-10 rounded-full bg-gray-300"></div>
+							<div class="h-4 w-20 rounded-full bg-gray-200"></div>
+						</div>
+					</div>
+				</div>
+			{/each}
+		{:then eventData}
 			{#each eventData as event}
 				<div class="rounded-lg border-l-4 border-garnet-500 bg-white p-4 shadow">
 					<div class="flex items-start justify-between">
@@ -71,8 +94,8 @@
 					{/if}
 				</div>
 			{/each}
-		</div>
-	{:catch error}
-		<p class="text-red-500">Error loading events: {error.message}</p>
-	{/await}
+		{:catch error}
+			<p class="text-red-500">Error loading events: {error.message}</p>
+		{/await}
+	</div>
 </div>

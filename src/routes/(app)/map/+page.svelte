@@ -16,7 +16,7 @@
 	import { onMount } from 'svelte';
 	import { PUBLIC_POCKETBASE_HOST, PUBLIC_OPENROUTE_API_KEY } from '$env/static/public';
 	import { boundaries } from '$lib/uottawa-geo';
-	import { slide } from 'svelte/transition';
+	import { fade, slide } from 'svelte/transition';
 	import { page } from '$app/state';
 	const { pb } = getPocketBaseInstance();
 
@@ -32,7 +32,7 @@
 			navigator.geolocation.getCurrentPosition((pos) => {
 				// userPosition = [45.421827, -75.682967];
 				userPosition = [pos.coords.latitude, pos.coords.longitude];
-				setTimeout(getLocation, 15000);
+				setTimeout(getLocation, 3000);
 			});
 		}
 	}
@@ -80,15 +80,17 @@
 </script>
 
 <!-- visited locations bar -->
-<div class="absolute inset-x-4 top-4 z-[500] max-w-[500px] rounded-lg bg-base-200 p-2 shadow-lg">
-	{#await data then [locationsData, visitsData]}
-		{@const visitedCount = visitsData.filter((v) =>
-			locationsData.some((l) => l.id === v.location_id)
-		).length}
-		{@const totalLocations = locationsData.length}
-		{@const progressPercentage =
-			totalLocations > 0 ? Math.round((visitedCount / totalLocations) * 100) : 0}
-
+{#await data then [locationsData, visitsData]}
+	{@const visitedCount = visitsData.filter((v) =>
+		locationsData.some((l) => l.id === v.location_id)
+	).length}
+	{@const totalLocations = locationsData.length}
+	{@const progressPercentage =
+		totalLocations > 0 ? Math.round((visitedCount / totalLocations) * 100) : 0}
+	<div
+		in:fade={{ duration: 100 }}
+		class="absolute inset-x-4 top-4 z-[500] max-w-[500px] rounded-lg bg-base-200 p-2 shadow-lg"
+	>
 		<div class="mb-1.5 text-center font-bold text-gray-600">
 			{$t('map.progress', {
 				values: {
@@ -110,42 +112,42 @@
 				<span class="sr-only">{progressPercentage}% complete</span>
 			</div>
 		</div>
-	{/await}
-</div>
+	</div>
 
-<!-- locations burger -->
-<div class="absolute left-4 top-20 z-[500]">
-	<button
-		onclick={() => (showMenu = !showMenu)}
-		class="flex items-center rounded-full bg-garnet-500 px-4 py-2 font-bold text-white shadow-lg transition-all hover:bg-garnet-400"
-	>
-		<svg
-			xmlns="http://www.w3.org/2000/svg"
-			class="mr-2 block h-5 w-5 cursor-pointer focus:outline-none active:outline-none"
-			fill="none"
-			viewBox="0 0 24 24"
-			stroke="currentColor"
+	<!-- locations burger -->
+	<div in:fade={{ duration: 100 }} class="absolute left-4 top-20 z-[500]">
+		<button
+			onclick={() => (showMenu = !showMenu)}
+			class="flex items-center rounded-full bg-garnet-500 px-4 py-2 font-bold text-white shadow-lg transition-all hover:bg-garnet-400"
 		>
-			{#if !showMenu}
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M4 6h16M4 12h16M4 18h16"
-				/>
-			{:else}
-				<path
-					stroke-linecap="round"
-					stroke-linejoin="round"
-					stroke-width="2"
-					d="M4 4l16 16 M20 4l-16 16"
-				/>
-			{/if}
-		</svg>
+			<svg
+				xmlns="http://www.w3.org/2000/svg"
+				class="mr-2 block h-5 w-5 cursor-pointer focus:outline-none active:outline-none"
+				fill="none"
+				viewBox="0 0 24 24"
+				stroke="currentColor"
+			>
+				{#if !showMenu}
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M4 6h16M4 12h16M4 18h16"
+					/>
+				{:else}
+					<path
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						stroke-width="2"
+						d="M4 4l16 16 M20 4l-16 16"
+					/>
+				{/if}
+			</svg>
 
-		<span>{$t('map.locations')}</span>
-	</button>
-</div>
+			<span>{$t('map.locations')}</span>
+		</button>
+	</div>
+{/await}
 
 {#if showMenu}
 	{#await data then [locationsData]}

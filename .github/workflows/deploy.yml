@@ -1,25 +1,39 @@
-name: Build static site to pb_public
-
+name: Deploy to VPS
 on:
   push:
     branches: [main]
-    paths-ignore:
-      - 'pocketbase/pb_public/**'
-  workflow_dispatch:
 
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Deploy using ssh
+        uses: appleboy/ssh-action@master
         with:
-          fetch-depth: 0
+          host: ${{ secrets.HOST }}
+          username: ${{ secrets.USERNAME }}
+          key: ${{ secrets.PRIVATE_KEY }}
+          port: 22
+          script: |
+            cd /var/www/uo-explorer
 
-      - name: Install dependencies
-        run: npm install
+            cat > .env << 'EOF'
+            PUBLIC_POCKETBASE_HOST='${{ secrets.PUBLIC_POCKETBASE_HOST }}'
+            PUBLIC_OPENROUTE_API_KEY='${{ secrets.PUBLIC_OPENROUTE_API_KEY }}'
+            EOF
 
-      - name: Build
-        run: npm run build
-        env:
-          PUBLIC_POCKETBASE_HOST: ${{ secrets.PUBLIC_POCKETBASE_HOST }}
-          PUBLIC_OPENROUTE_API_KEY: ${{ secrets.PUBLIC_OPENROUTE_API_KEY }}
+            # Set secure permissions
+            chmod 600 .env
+
+            # Verify .env was created
+            if [ ! -f .env ]; then
+              echo "Error: .env file was not created!"
+              exit 1
+            fi
+
+            echo ".env file created successfully"
+
+            git pull origin main
+            npm install
+            npm run build
+            docker compose restart
