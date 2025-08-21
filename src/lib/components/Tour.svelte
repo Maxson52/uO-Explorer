@@ -51,16 +51,15 @@
 		if (!localStorage.getItem('tour-completed') && page.url.pathname == '/home')
 			setTimeout(() => tg.start(), 150);
 
+		document.querySelector('.tour-step-2')?.addEventListener('click', () => {
+			if (!tg.isFinished()) tg.nextStep();
+		});
 		document.querySelector('.tour-step-3')?.addEventListener('click', () => {
-			tg.finishTour();
+			if (!tg.isFinished()) tg.finishTour();
 		});
 	});
 
 	tg.onAfterExit(() => {
 		localStorage.setItem('tour-completed', 'true');
-	});
-
-	afterNavigate((nav) => {
-		if (nav?.to?.route.id == '/(app)/map' && tg.activeStep == 1) tg.nextStep();
 	});
 </script>

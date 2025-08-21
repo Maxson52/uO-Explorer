@@ -21,6 +21,7 @@
 		"@sveltejs/vite-plugin-svelte": "^5.0.0",
 		"@types/mapbox__polyline": "^1.0.5",
 		"autoprefixer": "^10.4.20",
+		"csv-parser": "^3.2.0",
 		"daisyui": "^4.12.23",
 		"eslint": "^9.18.0",
 		"eslint-config-prettier": "^10.0.1",

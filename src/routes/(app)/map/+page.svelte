@@ -45,8 +45,8 @@
 		if (navigator.geolocation) {
 			navigator.geolocation.getCurrentPosition(
 				(pos) => {
-					// const newPosition = [pos.coords.latitude, pos.coords.longitude];
-					const newPosition = [45.421827, -75.682967];
+					const newPosition = [pos.coords.latitude, pos.coords.longitude];
+					// const newPosition = [45.421827, -75.682967];
 					if (
 						!userPosition ||
 						newPosition[0] !== userPosition[0] ||
@@ -120,7 +120,7 @@
 					(selectedLocation = (await locationsPromise).find(
 						(location) => location.id === page.url.searchParams.get('location_id')
 					)),
-				75
+				500
 			);
 	});
 </script>

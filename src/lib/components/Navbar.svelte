@@ -58,7 +58,7 @@
 {#snippet optionSnippet()}
 	<!-- User Profile Section -->
 	<li class="mb-4">
-		<div class="flex items-center gap-3 rounded-lg bg-base-200 px-4 py-3">
+		<div class="flex w-full items-center gap-3 rounded-lg bg-base-200 px-4 py-3">
 			<div class="avatar placeholder">
 				<div class="w-12 rounded-full bg-garnet-500 text-white">
 					<span class="text-lg font-semibold">
@@ -184,5 +184,9 @@
 
 	.btm-nav .active {
 		background-color: transparent;
+	}
+
+	li {
+		width: 100%;
 	}
 </style>
