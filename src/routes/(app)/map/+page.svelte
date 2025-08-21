@@ -27,9 +27,18 @@
 	const visitsPromise = pb.collection('visits').getFullList();
 	const data = Promise.all([locationsPromise, visitsPromise]);
 
-	// svelte-ignore non_reactive_update
-	let map: any;
+	let map: any = $state();
 	let mapMarkers: Record<string, any> = $state({});
+
+	$effect(() => {
+		if (!map) return;
+		// open popup to center of screen
+		map.on('popupopen', (e: any) => map.panTo(e.target._popup._latlng));
+		// remove selected location (from dropdown) if no directions are set
+		map.on('popupclose', () => {
+			if (selectedLocation && !routeDirections) selectedLocation = null;
+		});
+	});
 
 	let userPosition: any[] | undefined = $state();
 	function getLocation() {
@@ -94,16 +103,9 @@
 	let selectedLocation: any = $state.raw();
 	$effect(() => {
 		if (selectedLocation) {
-			// if a location is selected, move it into view and show popup
+			// if a location is selected from dropdown, show popup
 			const marker = mapMarkers[selectedLocation.id];
 			if (marker) marker.openPopup();
-			map.flyTo(selectedLocation.location, 17);
-		} else {
-			// if a location is deselected/cleared, remove the direction stuff (may or may not be present if the user clicks get directions)
-			routeCoords = [];
-			routeDistance = undefined;
-			routeDuration = undefined;
-			routeDirections = undefined;
 		}
 	});
 
@@ -194,7 +196,7 @@
 
 	{#if showMenu}
 		<div
-			class="absolute left-4 top-32 z-[500] max-h-[60vh] w-64 overflow-y-auto rounded-lg bg-white p-2 shadow-lg"
+			class="absolute left-4 top-32 z-[501] max-h-[60vh] w-64 overflow-y-auto rounded-lg bg-white p-2 shadow-lg"
 			in:slide={{ duration: 250 }}
 		>
 			<ul>
@@ -207,7 +209,14 @@
 						class:font-bold={selectedLocation == location}
 						onclick={() => {
 							if (selectedLocation == location) selectedLocation = null;
-							else selectedLocation = location;
+							else {
+								// set new location and reset directions
+								selectedLocation = location;
+								routeCoords = [];
+								routeDistance = undefined;
+								routeDuration = undefined;
+								routeDirections = undefined;
+							}
 							showMenu = false;
 						}}
 					>
@@ -233,7 +242,7 @@
 				{$locale == 'en' ? selectedLocation.name_en : selectedLocation.name_fr}
 			</div>
 
-			<ul class="max-h-32 space-y-1.5 overflow-scroll">
+			<ul class="max-h-24 space-y-1.5 overflow-scroll">
 				{#each routeDirections as step, i}
 					<li class="flex flex-row justify-between rounded-md bg-white p-2 shadow-sm">
 						<div class="text-sm font-medium text-gray-800">
@@ -260,7 +269,7 @@
 				[45.430818, -75.698964], // top left
 				[45.414538, -75.662871] // bottom right
 			],
-			minZoom: 14,
+			minZoom: 13,
 			maxZoom: 18,
 			maxBoundsViscosity: 0.8,
 			zoomControl: false
@@ -344,6 +353,9 @@
 										routeDistance = res?.distance.toFixed(0);
 										routeDuration = ((res?.duration || 0) / 60).toFixed(0);
 										routeDirections = res?.directions;
+
+										map.flyTo(routeCoords[Math.floor(routeCoords.length / 2)] || userPosition, 16);
+										mapMarkers[location.id].closePopup();
 									});
 								}}
 							>
