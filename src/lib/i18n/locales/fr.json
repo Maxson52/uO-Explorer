@@ -67,6 +67,8 @@
 		}
 	},
 	"map": {
+		"get_directions": "Obtenir l'itinéraire",
+		"directions_to": "Itinéraire vers",
 		"learn_more": "En savoir plus",
 		"progress": "Découvert {visited} de {total} lieux ({percentage}%)",
 		"you_are_here": "Vous êtes ici",

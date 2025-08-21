@@ -2,7 +2,7 @@
 	import { locale, t } from 'svelte-i18n';
 </script>
 
-<div class="container mx-auto max-w-3xl p-4 pb-[env(safe-area-inset-bottom)]">
+<div class="container mx-auto max-w-3xl p-4 pb-[calc(2rem+env(safe-area-inset-bottom))]">
 	<h1 class="mb-8 mt-4 text-4xl font-bold">{$t('sponsors.our_sponsors')}</h1>
 
 	<div class="space-y-12">

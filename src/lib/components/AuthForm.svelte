@@ -83,7 +83,7 @@
 </script>
 
 <div class="flex flex-grow items-center justify-center">
-	<div class="card w-96 bg-base-100 shadow-xl">
+	<div class="card mx-4 max-w-96 bg-base-100 shadow-xl">
 		<div class="card-body">
 			<div class="">
 				<h1 class="card-title text-2xl">{$t('site_name')}</h1>

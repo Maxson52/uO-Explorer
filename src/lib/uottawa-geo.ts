@@ -1,4 +1,4 @@
-export const boundaries = {
+export const boundaries: any = {
 	type: 'FeatureCollection',
 	features: [
 		{

@@ -67,6 +67,8 @@
 		}
 	},
 	"map": {
+		"get_directions": "Get Directions",
+		"directions_to": "Directions to",
 		"learn_more": "Learn more",
 		"progress": "Discovered {visited} of {total} locations ({percentage}%)",
 		"you_are_here": "You are here",

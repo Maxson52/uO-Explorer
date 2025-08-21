@@ -38,7 +38,7 @@
 			/>
 		</svg>
 
-		<h1 class="mt-4 text-center text-3xl font-bold">
+		<h1 class="mt-4 text-center text-xl font-bold">
 			{$t('loading')}...
 		</h1>
 	</div>

@@ -145,7 +145,9 @@
 	</li>
 
 	<div class="relative h-full">
-		<footer class="fixed bottom-4 right-0 flex w-full items-center justify-center gap-2">
+		<footer
+			class="fixed bottom-[calc(1rem+env(safe-area-inset-bottom))] right-0 flex w-full items-center justify-center gap-2"
+		>
 			<span class="font-semibold">{$t('auth.powered_by')}</span>
 			<img
 				src={$locale == 'fr' ? '/CGEC_black.svg' : '/CEED_black.svg'}

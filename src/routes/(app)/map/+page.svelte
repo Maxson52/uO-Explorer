@@ -13,13 +13,12 @@
 	} from 'sveaflet';
 	import { getPocketBaseInstance } from '$lib/states/pocketbase.svelte';
 	import { locale, t } from 'svelte-i18n';
+	import polyline from '@mapbox/polyline';
 	import { onMount } from 'svelte';
 	import { PUBLIC_POCKETBASE_HOST } from '$env/static/public';
-	import { boundaries } from '$lib/uottawa-geo';
+	import { boundaries } from '$lib/uottawa-geo.js';
 	import { fade, slide } from 'svelte/transition';
 	import { page } from '$app/state';
-	import MdiChevronUp from '~icons/mdi/chevron-up';
-	import MdiChevronDown from '~icons/mdi/chevron-down';
 	const { pb } = getPocketBaseInstance();
 
 	const locationsPromise = pb.collection('locations').getFullList({
@@ -30,7 +29,7 @@
 
 	// svelte-ignore non_reactive_update
 	let map: any;
-	let mapMarkers: Record<string, any> = {};
+	let mapMarkers: Record<string, any> = $state({});
 
 	let userPosition: any[] | undefined = $state();
 	function getLocation() {
@@ -46,29 +45,43 @@
 					)
 						userPosition = newPosition;
 					setTimeout(getLocation, 3000);
+					localStorage.removeItem('location-disabled-alert');
 				},
 				() => {
+					if (localStorage.getItem('location-disabled-alert')) return;
 					alert('Geolocation is disabled. Please enable it in your browser settings.');
+					localStorage.setItem('location-disabled-alert', 'true');
 				}
 			);
 		} else {
+			if (localStorage.getItem('location-disabled-alert')) return;
 			alert('Geolocation is not supported by this browser.');
+			localStorage.setItem('location-disabled-alert', 'true');
 		}
 	}
 
 	async function fetchWalkingRoute(from: [number, number], to: any) {
 		if (!to?.location || !to?.location.lon) return;
 
-		const res = await fetch(
-			`https://uo-explorer.makerepo.com/ors/v2/directions/foot-walking?start=${from[1]},${from[0]}&end=${to?.location.lon},${to?.location.lat}`
-		);
+		const res = await fetch('https://uo-explorer.makerepo.com/ors/v2/directions/foot-walking', {
+			method: 'POST',
+			headers: {
+				'Content-type': 'application/json; charset=UTF-8'
+			},
+			body: JSON.stringify({
+				coordinates: [
+					[from[1], from[0]],
+					[to?.location.lon, to?.location.lat]
+				],
+				language: $locale
+			})
+		});
 		const json = await res.json();
 		return {
-			// @ts-ignore
-			coords: json.features[0].geometry.coordinates.map(([lng, lat]) => [lat, lng]),
-			distance: json.features[0].properties.summary.distance,
-			duration: json.features[0].properties.summary.duration,
-			directions: json.features[0].properties.segments[0].steps
+			coords: polyline.decode(json.routes[0].geometry),
+			distance: json.routes[0].summary.distance,
+			duration: json.routes[0].summary.duration,
+			directions: json.routes[0].segments[0].steps
 		};
 	}
 
@@ -76,40 +89,37 @@
 	let routeDistance: string | undefined = $state();
 	let routeDuration: string | undefined = $state();
 	let routeDirections: any[] | undefined = $state();
-	$effect(() => {
-		if (userPosition && selectedLocation) {
-			const marker = mapMarkers[selectedLocation.id];
-			if (marker) marker.openPopup();
-			map.flyTo(selectedLocation.location);
-
-			// @ts-ignore
-			fetchWalkingRoute(userPosition, selectedLocation).then((res) => {
-				routeCoords = res?.coords;
-				routeDistance = res?.distance.toFixed(0);
-				routeDuration = ((res?.duration || 0) / 60).toFixed(0);
-				routeDirections = res?.directions;
-			});
-		}
-	});
-
-	onMount(async () => {
-		getLocation();
-
-		if (page.url.searchParams.get('location_id'))
-			selectedLocation = (await locationsPromise).find(
-				(location) => location.id === page.url.searchParams.get('location_id')
-			);
-	});
 
 	let showMenu = $state(false);
 	let selectedLocation: any = $state.raw();
 	$effect(() => {
-		if (!selectedLocation) {
+		if (selectedLocation) {
+			// if a location is selected, move it into view and show popup
+			const marker = mapMarkers[selectedLocation.id];
+			if (marker) marker.openPopup();
+			map.flyTo(selectedLocation.location, 17);
+		} else {
+			// if a location is deselected/cleared, remove the direction stuff (may or may not be present if the user clicks get directions)
 			routeCoords = [];
 			routeDistance = undefined;
 			routeDuration = undefined;
 			routeDirections = undefined;
 		}
+	});
+
+	onMount(() => {
+		getLocation();
+
+		// auto scroll to view and popup if the user is directed to the map from the schedule page
+		// delay because leaflet doesn't like the popup on render for some reason it goes really skinny
+		if (page.url.searchParams.get('location_id'))
+			setTimeout(
+				async () =>
+					(selectedLocation = (await locationsPromise).find(
+						(location) => location.id === page.url.searchParams.get('location_id')
+					)),
+				75
+			);
 	});
 </script>
 
@@ -148,33 +158,6 @@
 		</div>
 	</div>
 
-	<!-- route directions -->
-	{#if routeDirections}
-		<div
-			in:fade={{ duration: 100 }}
-			class="absolute inset-x-4 bottom-20 z-[500] mx-auto max-w-[500px] rounded-lg bg-base-200 p-2 shadow-lg"
-		>
-			<div class="relative mb-1.5 text-gray-600">
-				<button class="absolute right-0 top-0" onclick={() => (selectedLocation = null)}>×</button>
-
-				<div class="pb-2 font-bold">Directions</div>
-
-				<ul class="max-h-32 space-y-1.5 overflow-scroll">
-					{#each routeDirections as step, i}
-						<li class="flex flex-row justify-between rounded-md bg-white p-2 shadow-sm">
-							<div class="text-sm font-medium text-gray-800">
-								{i + 1}. {step.instruction}
-							</div>
-							<div class="text-xs text-gray-500">
-								{step.distance.toFixed(0)} m ({(step.duration / 60).toFixed(1)} min)
-							</div>
-						</li>
-					{/each}
-				</ul>
-			</div>
-		</div>
-	{/if}
-
 	<!-- locations burger -->
 	<div in:fade={{ duration: 100 }} class="absolute left-4 top-20 z-[500]">
 		<button
@@ -208,10 +191,8 @@
 			<span>{$t('map.locations')}</span>
 		</button>
 	</div>
-{/await}
 
-{#if showMenu}
-	{#await data then [locationsData]}
+	{#if showMenu}
 		<div
 			class="absolute left-4 top-32 z-[500] max-h-[60vh] w-64 overflow-y-auto rounded-lg bg-white p-2 shadow-lg"
 			in:slide={{ duration: 250 }}
@@ -235,7 +216,37 @@
 				{/each}
 			</ul>
 		</div>
-	{/await}
+	{/if}
+{/await}
+
+<!-- route directions -->
+{#if selectedLocation && routeDirections}
+	<div
+		in:fade={{ duration: 100 }}
+		class="absolute inset-x-4 bottom-[calc(5rem+env(safe-area-inset-bottom))] z-[500] mx-auto max-w-[500px] rounded-lg bg-base-200 p-2 shadow-lg"
+	>
+		<div class="relative mb-1.5 text-gray-600">
+			<button class="absolute right-0 top-0" onclick={() => (selectedLocation = null)}>×</button>
+
+			<div class="pb-2 font-bold">
+				{$t('map.directions_to')}
+				{$locale == 'en' ? selectedLocation.name_en : selectedLocation.name_fr}
+			</div>
+
+			<ul class="max-h-32 space-y-1.5 overflow-scroll">
+				{#each routeDirections as step, i}
+					<li class="flex flex-row justify-between rounded-md bg-white p-2 shadow-sm">
+						<div class="text-sm font-medium text-gray-800">
+							{i + 1}. {step.instruction}
+						</div>
+						<div class="text-xs text-gray-500">
+							{step.distance.toFixed(0)} m ({(step.duration / 60).toFixed(1)} min)
+						</div>
+					</li>
+				{/each}
+			</ul>
+		</div>
+	</div>
 {/if}
 
 <!-- map -->
@@ -318,12 +329,34 @@
 						<h1 class="font-bold">
 							{$locale == 'en' ? location.name_en : location.name_fr}
 						</h1>
-						<p>
+						<p style="margin: 0.5rem 0;">
 							{$locale == 'en' ? location.description_preview_en : location.description_preview_fr}
 						</p>
-						<a class="underline underline-offset-2" href={'/map/' + location.id}
-							>{$t('map.learn_more')}</a
-						>
+
+						{#if userPosition}
+							<button
+								class="text-blue-500 underline underline-offset-2"
+								onclick={() => {
+									selectedLocation = location;
+									// @ts-ignore
+									fetchWalkingRoute(userPosition, selectedLocation).then((res) => {
+										routeCoords = res?.coords || [];
+										routeDistance = res?.distance.toFixed(0);
+										routeDuration = ((res?.duration || 0) / 60).toFixed(0);
+										routeDirections = res?.directions;
+									});
+								}}
+							>
+								{$t('map.get_directions')}
+							</button>
+						{/if}
+
+						<a
+							class="mt-4 block w-full rounded-lg bg-garnet-500 p-1.5 text-center"
+							style="color: white !important;"
+							href={'/map/' + location.id}
+							>{$t('map.learn_more')}
+						</a>
 					</Popup>
 				</Marker>
 			{/each}

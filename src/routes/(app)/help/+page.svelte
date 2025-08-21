@@ -2,12 +2,11 @@
 	import { t } from 'svelte-i18n';
 </script>
 
-<div class="container mx-auto max-w-3xl p-4 pb-[env(safe-area-inset-bottom)]">
+<div class="container mx-auto max-w-3xl p-4 pb-[calc(2rem+env(safe-area-inset-bottom))]">
 	<h1 class="mb-8 mt-4 text-4xl font-bold">{$t('nav.help')}</h1>
 
 	<div class="mb-6">
-		<h2 class="mb-2 text-2xl font-semibold">{$t('help.need_help')}</h2>
-		<p class="mb-4 text-gray-700">{$t('help.contact_us')}:</p>
+		<h2 class="mb-2 text-2xl font-semibold">{$t('help.contact_us')}</h2>
 
 		<div class="space-y-2">
 			<a href="tel:613-793-0713" class="btn w-full bg-garnet-500 text-white">
@@ -19,7 +18,7 @@
 		</div>
 	</div>
 
-	<div class="mb-8">
+	<div>
 		<h2 class="mb-2 text-2xl font-semibold">{$t('help.guide')}</h2>
 
 		<div class="mb-6">
