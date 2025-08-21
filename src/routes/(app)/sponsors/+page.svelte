@@ -1,11 +1,24 @@
 <script>
-	import { t } from 'svelte-i18n';
+	import { locale, t } from 'svelte-i18n';
 </script>
 
-<div class="container mx-auto max-w-3xl p-4">
+<div class="container mx-auto max-w-3xl p-4 pb-[env(safe-area-inset-bottom)]">
 	<h1 class="mb-8 mt-4 text-4xl font-bold">{$t('sponsors.our_sponsors')}</h1>
 
 	<div class="space-y-12">
+		<!-- CEED -->
+		<div>
+			<img
+				src={$locale == 'en' ? '/CEED_black.svg' : '/CGEC_black.svg'}
+				alt="Manulife"
+				class="h-auto max-w-36 object-contain pb-4"
+			/>
+
+			<p class="text-gray-700">
+				{$t('sponsors.ceed')}
+			</p>
+		</div>
+
 		<!-- Manulife -->
 		<div>
 			<img

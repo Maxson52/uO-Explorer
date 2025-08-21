@@ -14,10 +14,12 @@
 	import { getPocketBaseInstance } from '$lib/states/pocketbase.svelte';
 	import { locale, t } from 'svelte-i18n';
 	import { onMount } from 'svelte';
-	import { PUBLIC_POCKETBASE_HOST, PUBLIC_OPENROUTE_API_KEY } from '$env/static/public';
+	import { PUBLIC_POCKETBASE_HOST } from '$env/static/public';
 	import { boundaries } from '$lib/uottawa-geo';
 	import { fade, slide } from 'svelte/transition';
 	import { page } from '$app/state';
+	import MdiChevronUp from '~icons/mdi/chevron-up';
+	import MdiChevronDown from '~icons/mdi/chevron-down';
 	const { pb } = getPocketBaseInstance();
 
 	const locationsPromise = pb.collection('locations').getFullList({
@@ -26,14 +28,31 @@
 	const visitsPromise = pb.collection('visits').getFullList();
 	const data = Promise.all([locationsPromise, visitsPromise]);
 
-	let userPosition = $state();
+	// svelte-ignore non_reactive_update
+	let map: any;
+	let mapMarkers: Record<string, any> = {};
+
+	let userPosition: any[] | undefined = $state();
 	function getLocation() {
 		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition((pos) => {
-				// userPosition = [45.421827, -75.682967];
-				userPosition = [pos.coords.latitude, pos.coords.longitude];
-				setTimeout(getLocation, 3000);
-			});
+			navigator.geolocation.getCurrentPosition(
+				(pos) => {
+					// const newPosition = [pos.coords.latitude, pos.coords.longitude];
+					const newPosition = [45.421827, -75.682967];
+					if (
+						!userPosition ||
+						newPosition[0] !== userPosition[0] ||
+						newPosition[1] !== userPosition[1]
+					)
+						userPosition = newPosition;
+					setTimeout(getLocation, 3000);
+				},
+				() => {
+					alert('Geolocation is disabled. Please enable it in your browser settings.');
+				}
+			);
+		} else {
+			alert('Geolocation is not supported by this browser.');
 		}
 	}
 
@@ -41,27 +60,34 @@
 		if (!to?.location || !to?.location.lon) return;
 
 		const res = await fetch(
-			`https://api.openrouteservice.org/v2/directions/foot-walking?api_key=${PUBLIC_OPENROUTE_API_KEY}&start=${from[1]},${from[0]}&end=${to?.location.lon},${to?.location.lat}`
+			`https://uo-explorer.makerepo.com/ors/v2/directions/foot-walking?start=${from[1]},${from[0]}&end=${to?.location.lon},${to?.location.lat}`
 		);
 		const json = await res.json();
 		return {
 			// @ts-ignore
 			coords: json.features[0].geometry.coordinates.map(([lng, lat]) => [lat, lng]),
 			distance: json.features[0].properties.summary.distance,
-			duration: json.features[0].properties.summary.duration
+			duration: json.features[0].properties.summary.duration,
+			directions: json.features[0].properties.segments[0].steps
 		};
 	}
 
 	let routeCoords: [number, number][] = $state([]);
 	let routeDistance: string | undefined = $state();
 	let routeDuration: string | undefined = $state();
+	let routeDirections: any[] | undefined = $state();
 	$effect(() => {
 		if (userPosition && selectedLocation) {
+			const marker = mapMarkers[selectedLocation.id];
+			if (marker) marker.openPopup();
+			map.flyTo(selectedLocation.location);
+
 			// @ts-ignore
 			fetchWalkingRoute(userPosition, selectedLocation).then((res) => {
 				routeCoords = res?.coords;
 				routeDistance = res?.distance.toFixed(0);
 				routeDuration = ((res?.duration || 0) / 60).toFixed(0);
+				routeDirections = res?.directions;
 			});
 		}
 	});
@@ -77,10 +103,18 @@
 
 	let showMenu = $state(false);
 	let selectedLocation: any = $state.raw();
+	$effect(() => {
+		if (!selectedLocation) {
+			routeCoords = [];
+			routeDistance = undefined;
+			routeDuration = undefined;
+			routeDirections = undefined;
+		}
+	});
 </script>
 
-<!-- visited locations bar -->
 {#await data then [locationsData, visitsData]}
+	<!-- visited locations bar -->
 	{@const visitedCount = visitsData.filter((v) =>
 		locationsData.some((l) => l.id === v.location_id)
 	).length}
@@ -113,6 +147,33 @@
 			</div>
 		</div>
 	</div>
+
+	<!-- route directions -->
+	{#if routeDirections}
+		<div
+			in:fade={{ duration: 100 }}
+			class="absolute inset-x-4 bottom-20 z-[500] mx-auto max-w-[500px] rounded-lg bg-base-200 p-2 shadow-lg"
+		>
+			<div class="relative mb-1.5 text-gray-600">
+				<button class="absolute right-0 top-0" onclick={() => (selectedLocation = null)}>×</button>
+
+				<div class="pb-2 font-bold">Directions</div>
+
+				<ul class="max-h-32 space-y-1.5 overflow-scroll">
+					{#each routeDirections as step, i}
+						<li class="flex flex-row justify-between rounded-md bg-white p-2 shadow-sm">
+							<div class="text-sm font-medium text-gray-800">
+								{i + 1}. {step.instruction}
+							</div>
+							<div class="text-xs text-gray-500">
+								{step.distance.toFixed(0)} m ({(step.duration / 60).toFixed(1)} min)
+							</div>
+						</li>
+					{/each}
+				</ul>
+			</div>
+		</div>
+	{/if}
 
 	<!-- locations burger -->
 	<div in:fade={{ duration: 100 }} class="absolute left-4 top-20 z-[500]">
@@ -180,6 +241,7 @@
 <!-- map -->
 <div class="z-10 mx-2 mt-2 h-[calc(100dvh-64px-1rem-env(safe-area-inset-bottom))]">
 	<Map
+		bind:instance={map}
 		options={{
 			center: [45.421827, -75.682967],
 			zoom: 16,
@@ -187,7 +249,7 @@
 				[45.430818, -75.698964], // top left
 				[45.414538, -75.662871] // bottom right
 			],
-			minZoom: 15,
+			minZoom: 14,
 			maxZoom: 18,
 			maxBoundsViscosity: 0.8,
 			zoomControl: false
@@ -238,6 +300,7 @@
 				{@const isVisited = visitsData.some((v) => v.location_id === location.id)}
 				<Marker
 					latLng={location.location}
+					bind:instance={mapMarkers[location.id]}
 					options={{
 						opacity: isVisited ? 0.5 : 1
 					}}

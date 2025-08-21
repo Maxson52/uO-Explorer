@@ -1,5 +1,5 @@
 <script lang="ts">
-	import { afterNavigate } from '$app/navigation';
+	import { afterNavigate, goto } from '$app/navigation';
 	import { page } from '$app/state';
 	import '@sjmc11/tourguidejs/src/scss/tour.scss';
 	import { TourGuideClient } from '@sjmc11/tourguidejs/src/Tour';
@@ -18,13 +18,13 @@
 			content: $t('tour.steps.2.body'),
 			target: '.tour-step-2',
 			fixed: true,
-			beforeEnter: () => tg.setOptions({ hideNext: true })
+			beforeLeave: () => goto('map')
 		},
 		{
 			title: $t('tour.steps.3.title'),
 			content: $t('tour.steps.3.body'),
 			fixed: true,
-			beforeEnter: () => tg.setOptions({ hidePrev: true, hideNext: false })
+			beforeEnter: () => tg.setOptions({ hidePrev: true })
 		},
 		{
 			title: $t('tour.steps.4.title'),
@@ -50,6 +50,10 @@
 	onMount(() => {
 		if (!localStorage.getItem('tour-completed') && page.url.pathname == '/home')
 			setTimeout(() => tg.start(), 150);
+
+		document.querySelector('.tour-step-3')?.addEventListener('click', () => {
+			tg.finishTour();
+		});
 	});
 
 	tg.onAfterExit(() => {
