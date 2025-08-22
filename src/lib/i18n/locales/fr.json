@@ -1,5 +1,5 @@
 {
-	"site_name": "Explorateur uOttawa",
+	"site_name": "uOttawa Explorer",
 	"loading": "Chargement",
 	"back": "Retour",
 	"auth": {
@@ -92,14 +92,14 @@
 		"location_doesnt_exist": "Cet emplacement n'existe pas dans notre système."
 	},
 	"error": {
+		"404": {
+			"message": "La page que vous recherchez n'existe pas ou a peut-être été déplacée."
+		},
 		"status": {
 			"default": "Erreur"
 		},
 		"message": {
 			"default": "Quelque chose s'est mal passé"
-		},
-		"404": {
-			"message": "La page que vous recherchez n'existe pas ou a peut-être été déplacée."
 		},
 		"general": {
 			"message": "Nous avons rencontré une erreur inattendue. Veuillez vérifier votre connexion Internet et réessayer."
@@ -114,7 +114,7 @@
 	},
 	"sponsors": {
 		"our_sponsors": "Nos commanditaires",
-		"ceed": "CEED offre une formation pratique en conception technique et en entrepreneuriat, en connectant les étudiants avec l'industrie pour développer des produits et des compétences commerciales.",
+		"ceed": "CEED offre une formation pratique en conception technique et en entrepreneuriat, en connectant les étudiants avec l'industrie pour développer des produits et des compétences commerciales. uOttawa Explorer a vu le jour grâce au développeur MakerRepo",
 		"manulife": "Un groupe international de services financiers de premier plan qui aide les gens à prendre des décisions plus faciles et à vivre mieux.",
 		"belairdirect": "Une compagnie d'assurance canadienne offrant des solutions d'assurance auto et habitation avec des outils numériques innovants et un service personnalisé.",
 		"td": "Engagée à aider les entreprises canadiennes à croître grâce à des solutions bancaires sur mesure et des conseils d'experts."
@@ -128,8 +128,9 @@
 		"location": "'En savoir plus' sur un lieu",
 		"location_desc": "Après avoir cliqué sur 'En savoir plus' depuis la carte du campus, vous pouvez lire une description détaillée de ce lieu. Pour participer au tirage au sort, appuyez sur l'icône d'appareil photo en bas à droite pour scanner le code QR placé à cette étape de la visite.",
 		"need_help": "Besoin d'aide?",
-		"contact_us": "Contactez-nous directement",
-		"call": "Appeler"
+		"contact_us": "Contactez-nous",
+		"call": "Appeler",
+		"guide_desc": "Vous ne savez pas où aller? Lisez les descriptions ci-dessous pour en savoir plus sur les fonctionnalités de uOttawa Explorer. Notez que nous recommandons FORTEMENT que l'application soit « Ajoutée à l'écran d'accueil » pour une meilleure expérience."
 	},
 	"tour": {
 		"next": "Prochain",

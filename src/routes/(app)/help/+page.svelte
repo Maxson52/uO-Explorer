@@ -22,6 +22,12 @@
 		<h2 class="mb-2 text-2xl font-semibold">{$t('help.guide')}</h2>
 
 		<div class="mb-6">
+			<p class="text-gray-700">
+				{$t('help.guide_desc')}
+			</p>
+		</div>
+
+		<div class="mb-6">
 			<h3 class="mb-1 text-xl font-medium">📅 {$t('help.schedule')}</h3>
 			<p class="text-gray-700">
 				{$t('help.schedule_desc')}

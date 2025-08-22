@@ -92,14 +92,14 @@
 		"location_doesnt_exist": "This location doesn't exist in our system."
 	},
 	"error": {
+		"404": {
+			"message": "The page you're looking for doesn't exist or may have been moved."
+		},
 		"status": {
 			"default": "Error"
 		},
 		"message": {
 			"default": "Something went wrong"
-		},
-		"404": {
-			"message": "The page you're looking for doesn't exist or may have been moved."
 		},
 		"general": {
 			"message": "We encountered an unexpected error. Please check your internet connection and try again."
@@ -114,7 +114,7 @@
 	},
 	"sponsors": {
 		"our_sponsors": "Our Sponsors",
-		"ceed": "CEED provides hands-on engineering design and entrepreneurship education, connecting students with industry to develop products and business skills.",
+		"ceed": "CEED provides hands-on engineering design and entrepreneurship education, connecting students with industry to develop products and business skills. uOttawa Explorer was brought to life by MakerRepo developer",
 		"manulife": "A leading international financial services group that helps people make their decisions easier and lives better.",
 		"belairdirect": "A Canadian insurance company offering car and home insurance with innovative digital tools and personalized service.",
 		"td": "Committed to helping Canadian businesses grow with tailored banking solutions and expert advice."
@@ -128,8 +128,9 @@
 		"location": "'Learn More' about a Location",
 		"location_desc": "After clicking 'Learn More' from the campus map, you can read a detailed description of this location. To gain an entry to the lucky draw, tap the camera icon in the bottom right to scan the QR code placed at this tour stop.",
 		"need_help": "Need Help?",
-		"contact_us": "Contact us directly",
-		"call": "Call"
+		"contact_us": "Contact us",
+		"call": "Call",
+		"guide_desc": "Not sure where to go? Read the descriptions below to find out more about the features of uOttawa Explorer. Note that we HIGHLY recommend the app be \"Added to Homescreen\" for the best experience."
 	},
 	"tour": {
 		"next": "Next",
