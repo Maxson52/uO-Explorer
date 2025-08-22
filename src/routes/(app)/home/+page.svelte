@@ -91,6 +91,17 @@
 							>
 						</div>
 					{/if}
+
+					{#if event.sign_up_link}
+						<div class="mt-3 text-sm">
+							<a
+								href={event.sign_up_link}
+								target="_blank"
+								rel="noreferrer"
+								class="link text-garnet-500">{$t('home.reserve_spot')}</a
+							>
+						</div>
+					{/if}
 				</div>
 			{/each}
 		{:catch error}

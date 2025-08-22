@@ -80,7 +80,8 @@
 		"schedule": "Schedule",
 		"start": "From",
 		"end": "Until",
-		"where": "Where"
+		"where": "Where",
+		"reserve_spot": "Reserve your spot"
 	},
 	"scan": {
 		"title": "Scan",

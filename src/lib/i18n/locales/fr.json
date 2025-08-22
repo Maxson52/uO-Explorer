@@ -80,7 +80,8 @@
 		"schedule": "Programme",
 		"start": "À partir",
 		"end": "Jusqu'à",
-		"where": "Ou"
+		"where": "Où",
+		"reserve_spot": "Réservez votre place"
 	},
 	"scan": {
 		"title": "Scannez",
