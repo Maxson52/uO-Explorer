@@ -21,20 +21,15 @@
 			if (!id) throw new Error('Location ID could not be found in URL');
 			location = await pb.collection('locations').getOne(id);
 			if (!location.has_qr_code) throw new Error('This location is not scannable');
-		} catch (err: any) {
-			error = err.message;
-		} finally {
-			loading = false;
-		}
-
-		// add visit
-		try {
+			// then mark it as visited
 			await pb.collection('visits').create({
 				user_id: pb.authStore.record?.id,
 				location_id: id
 			});
 		} catch (err: any) {
-			console.error(err);
+			error = err.message;
+		} finally {
+			loading = false;
 		}
 	});
 </script>
