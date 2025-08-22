@@ -109,18 +109,13 @@
 		}
 	});
 
-	onMount(() => {
+	onMount(async () => {
 		getLocation();
 
 		// auto scroll to view and popup if the user is directed to the map from the schedule page
-		// delay because leaflet doesn't like the popup on render for some reason it goes really skinny
 		if (page.url.searchParams.get('location_id'))
-			setTimeout(
-				async () =>
-					(selectedLocation = (await locationsPromise).find(
-						(location) => location.id === page.url.searchParams.get('location_id')
-					)),
-				500
+			selectedLocation = (await locationsPromise).find(
+				(location) => location.id === page.url.searchParams.get('location_id')
 			);
 	});
 </script>

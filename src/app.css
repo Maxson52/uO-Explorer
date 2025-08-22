@@ -9,3 +9,8 @@
 .tour-backdrop {
 	z-index: 998 !important;
 }
+
+.leaflet-popup-content {
+	width: 80dvw !important;
+	max-width: 300px !important;
+}
