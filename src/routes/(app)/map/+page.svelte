@@ -14,7 +14,7 @@
 	import { getPocketBaseInstance } from '$lib/states/pocketbase.svelte';
 	import { locale, t } from 'svelte-i18n';
 	import polyline from '@mapbox/polyline';
-	import { onMount } from 'svelte';
+	import { onDestroy, onMount } from 'svelte';
 	import { PUBLIC_POCKETBASE_HOST } from '$env/static/public';
 	import { boundaries } from '$lib/uottawa-geo.js';
 	import { fade, slide } from 'svelte/transition';
@@ -41,9 +41,10 @@
 	});
 
 	let userPosition: any[] | undefined = $state();
+	let watchId: number | undefined;
 	function getLocation() {
 		if (navigator.geolocation) {
-			navigator.geolocation.getCurrentPosition(
+			watchId = navigator.geolocation.watchPosition(
 				(pos) => {
 					const newPosition = [pos.coords.latitude, pos.coords.longitude];
 					// const newPosition = [45.421827, -75.682967];
@@ -53,14 +54,14 @@
 						newPosition[1] !== userPosition[1]
 					)
 						userPosition = newPosition;
-					setTimeout(getLocation, 3000);
 					localStorage.removeItem('location-disabled-alert');
 				},
 				() => {
 					if (localStorage.getItem('location-disabled-alert')) return;
 					alert('Geolocation is disabled. Please enable it in your browser settings.');
 					localStorage.setItem('location-disabled-alert', 'true');
-				}
+				},
+				{ enableHighAccuracy: true }
 			);
 		} else {
 			if (localStorage.getItem('location-disabled-alert')) return;
@@ -117,6 +118,10 @@
 			selectedLocation = (await locationsPromise).find(
 				(location) => location.id === page.url.searchParams.get('location_id')
 			);
+	});
+
+	onDestroy(() => {
+		if (watchId) navigator.geolocation.clearWatch(watchId);
 	});
 </script>
 
@@ -238,16 +243,24 @@
 			</div>
 
 			<ul class="max-h-24 space-y-1.5 overflow-scroll">
-				{#each routeDirections as step, i}
+				{#if routeDirections.length <= 1}
 					<li class="flex flex-row justify-between rounded-md bg-white p-2 shadow-sm">
 						<div class="text-sm font-medium text-gray-800">
-							{i + 1}. {step.instruction}
-						</div>
-						<div class="text-xs text-gray-500">
-							{step.distance.toFixed(0)} m ({(step.duration / 60).toFixed(1)} min)
+							{$t('map.already_there')}
 						</div>
 					</li>
-				{/each}
+				{:else}
+					{#each routeDirections as step, i}
+						<li class="flex flex-row justify-between rounded-md bg-white p-2 shadow-sm">
+							<div class="text-sm font-medium text-gray-800">
+								{i + 1}. {step.instruction}
+							</div>
+							<div class="text-xs text-gray-500">
+								{step.distance.toFixed(0)} m ({(step.duration / 60).toFixed(1)} min)
+							</div>
+						</li>
+					{/each}
+				{/if}
 			</ul>
 		</div>
 	</div>
@@ -292,7 +305,7 @@
 					color: '#8f001a'
 				}}
 			>
-				<Popup options={{ content: $t('map.you_are_here') }} />
+				<Tooltip options={{ content: $t('map.you_are_here') }} />
 			</Circle>
 		{/if}
 
@@ -345,8 +358,8 @@
 									// @ts-ignore
 									fetchWalkingRoute(userPosition, selectedLocation).then((res) => {
 										routeCoords = res?.coords || [];
-										routeDistance = res?.distance.toFixed(0);
-										routeDuration = ((res?.duration || 0) / 60).toFixed(0);
+										routeDistance = res?.distance?.toFixed(0);
+										routeDuration = (res?.duration / 60)?.toFixed(0);
 										routeDirections = res?.directions;
 
 										map.flyTo(routeCoords[Math.floor(routeCoords.length / 2)] || userPosition, 16);

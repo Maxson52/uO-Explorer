@@ -52,10 +52,10 @@
 			setTimeout(() => tg.start(), 150);
 
 		document.querySelector('.tour-step-2')?.addEventListener('click', () => {
-			if (!tg.isFinished()) tg.nextStep();
+			if (!tg.isFinished() && !localStorage.getItem('tour-completed')) tg.nextStep();
 		});
 		document.querySelector('.tour-step-3')?.addEventListener('click', () => {
-			if (!tg.isFinished()) tg.finishTour();
+			if (!tg.isFinished() && !localStorage.getItem('tour-completed')) tg.finishTour();
 		});
 	});
 

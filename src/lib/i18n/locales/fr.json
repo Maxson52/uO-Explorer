@@ -72,7 +72,8 @@
 		"learn_more": "En savoir plus",
 		"progress": "Découvert {visited} de {total} lieux ({percentage}%)",
 		"you_are_here": "Vous êtes ici",
-		"locations": "Lieux"
+		"locations": "Lieux",
+		"already_there": "Hmm... Il semble que vous soyez déjà à cet endroit"
 	},
 	"home": {
 		"view_map": "Voir la carte du campus",
