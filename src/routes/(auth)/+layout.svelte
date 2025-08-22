@@ -31,9 +31,9 @@
 	} = $props();
 </script>
 
-<AddToHomescreen />
-
 {#if !pb.authStore.isValid}
+	<AddToHomescreen />
+
 	<div class="flex min-h-[100dvh] flex-col">
 		<div class="flex flex-grow items-center justify-center bg-base-200">
 			{@render children()}
