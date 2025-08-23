@@ -153,7 +153,7 @@
 				{#if deferredPrompt}
 					<!-- Native install prompt available -->
 					<button
-						class="mb-5 flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border-0 bg-gradient-to-r from-violet-500 to-purple-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-violet-500/20 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-violet-500/25 active:translate-y-0"
+						class="mb-5 flex w-full cursor-pointer items-center justify-center gap-2 rounded-xl border-0 bg-gradient-to-r from-garnet-400 to-garnet-500 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-violet-500/20 transition-all hover:-translate-y-0.5 hover:shadow-lg hover:shadow-garnet-500/25 active:translate-y-0"
 						onclick={handleInstall}
 					>
 						<span class="text-lg">📥</span>

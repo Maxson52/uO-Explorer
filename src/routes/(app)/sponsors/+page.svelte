@@ -16,8 +16,7 @@
 
 			<p class="text-gray-700">
 				{$t('sponsors.ceed')}
-				<a class="link" href="https://www.linkedin.com/in/maxson-t" target="_blank" rel="noreferrer"
-					>Max Tully</a
+				<a class="link" href="https://max.hapific.com" target="_blank" rel="noreferrer">Max Tully</a
 				>.
 			</p>
 		</div>
