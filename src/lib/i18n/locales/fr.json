@@ -88,6 +88,7 @@
 		"description": "Scannez les codes QR placés sur le campus pour obtenir des participations au tirage au sort!",
 		"camera_permission": "Veuillez activer les permissions de la caméra pour commencer le scan",
 		"back_to_map": "Retour à la carte",
+		"back_to_location": "Retour à la page du lieu",
 		"draw_entered": "+1 Participation au tirage",
 		"scanned": "scanné",
 		"invalid_qr": "Code QR invalide",
@@ -112,6 +113,11 @@
 		},
 		"hints": {
 			"connection": "Assurez-vous d'être connecté à Internet et rechargez la page"
+		},
+		"map": {
+			"outside_boundary": "Vous êtes en dehors de la zone autorisée.",
+			"location_disabled": "La géolocalisation est désactivée. Veuillez l'activer dans les paramètres de votre navigateur.",
+			"location_unsupported": "La géolocalisation n'est pas prise en charge par ce navigateur."
 		}
 	},
 	"sponsors": {

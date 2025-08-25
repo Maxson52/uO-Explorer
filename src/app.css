@@ -2,6 +2,19 @@
 @tailwind components;
 @tailwind utilities;
 
+.user-marker {
+	animation: marker 3s infinite ease-in-out;
+}
+@keyframes marker {
+	0%,
+	100% {
+		filter: drop-shadow(0 0 12px rgba(143, 0, 26, 1));
+	}
+	50% {
+		filter: drop-shadow(0 0 6px rgba(143, 0, 26, 0.8));
+	}
+}
+
 .btn.bg-garnet-500 {
 	@apply hover:bg-garnet-400 disabled:bg-gray-300;
 }

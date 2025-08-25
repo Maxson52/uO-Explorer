@@ -88,6 +88,7 @@
 		"description": "Scan the QR Codes placed throughout the campus to gain entries to the lucky draw!",
 		"camera_permission": "Please enable camera permissions to begin scanning",
 		"back_to_map": "Back to Map",
+		"back_to_location": "Back to Location Page",
 		"draw_entered": "+1 Entry to the lucky draw",
 		"scanned": "scanned",
 		"invalid_qr": "Invalid QR Code",
@@ -112,6 +113,11 @@
 		},
 		"hints": {
 			"connection": "Ensure you're connected to the internet and try reloading"
+		},
+		"map": {
+			"outside_boundary": "You are outside the allowed boundary.",
+			"location_disabled": "Geolocation is disabled. Please enable it in your browser settings.",
+			"location_unsupported": "Geolocation is not supported by this browser."
 		}
 	},
 	"sponsors": {

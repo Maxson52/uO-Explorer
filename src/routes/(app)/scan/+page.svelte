@@ -1,5 +1,6 @@
 <script lang="ts">
 	import MdiCameraSwitch from '~icons/mdi/camera-switch';
+	import MdiMapMarker from '~icons/mdi/map-marker';
 
 	import { t } from 'svelte-i18n';
 	import { goto } from '$app/navigation';
@@ -99,4 +100,15 @@
 			<Alert type="error" message={error}></Alert>
 		</div>
 	{/if}
+
+	<button
+		onclick={(e) => {
+			e.preventDefault();
+			window.history.back();
+		}}
+		class="flex w-full flex-row items-center justify-center gap-2 rounded-full bg-garnet-500 px-6 py-3 text-center text-white shadow-md transition-colors hover:bg-garnet-400"
+	>
+		<MdiMapMarker />
+		{$t('scan.back_to_location')}
+	</button>
 </div>

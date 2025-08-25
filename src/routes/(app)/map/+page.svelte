@@ -19,7 +19,13 @@
 	import { boundaries } from '$lib/uottawa-geo.js';
 	import { fade, slide } from 'svelte/transition';
 	import { page } from '$app/state';
+
 	const { pb } = getPocketBaseInstance();
+
+	const MAP_BOUNDARY = [
+		[45.430818, -75.698964], // top left
+		[45.414538, -75.662871] // bottom right
+	];
 
 	const locationsPromise = pb.collection('locations').getFullList({
 		sort: 'name_en'
@@ -48,24 +54,39 @@
 				(pos) => {
 					const newPosition = [pos.coords.latitude, pos.coords.longitude];
 					// const newPosition = [45.421827, -75.682967];
-					if (
-						!userPosition ||
-						newPosition[0] !== userPosition[0] ||
-						newPosition[1] !== userPosition[1]
-					)
-						userPosition = newPosition;
+
+					const [topLat, leftLon] = MAP_BOUNDARY[0];
+					const [bottomLat, rightLon] = MAP_BOUNDARY[1];
+
+					const inBoundary =
+						newPosition[0] <= topLat &&
+						newPosition[0] >= bottomLat &&
+						newPosition[1] >= leftLon &&
+						newPosition[1] <= rightLon;
+
+					if (!inBoundary && !localStorage.getItem('out-of-boundary-alert')) {
+						alert($t('error.map.outside_boundary'));
+						localStorage.setItem('out-of-boundary-alert', 'true');
+					} else if (inBoundary) {
+						localStorage.removeItem('out-of-boundary-alert');
+					}
+					if (!inBoundary) return;
+
+					// if user is in the bounds, set their position
+					userPosition = newPosition;
+
 					localStorage.removeItem('location-disabled-alert');
 				},
 				() => {
 					if (localStorage.getItem('location-disabled-alert')) return;
-					alert('Geolocation is disabled. Please enable it in your browser settings.');
+					alert($t('error.map.location_disabled'));
 					localStorage.setItem('location-disabled-alert', 'true');
 				},
 				{ enableHighAccuracy: true }
 			);
 		} else {
 			if (localStorage.getItem('location-disabled-alert')) return;
-			alert('Geolocation is not supported by this browser.');
+			alert($t('error.map.location_unsupported'));
 			localStorage.setItem('location-disabled-alert', 'true');
 		}
 	}
@@ -242,7 +263,7 @@
 				{$locale == 'en' ? selectedLocation.name_en : selectedLocation.name_fr}
 			</div>
 
-			<ul class="max-h-24 space-y-1.5 overflow-scroll">
+			<ul class="max-h-24 space-y-1.5 overflow-y-scroll">
 				{#if routeDirections.length <= 1}
 					<li class="flex flex-row justify-between rounded-md bg-white p-2 shadow-sm">
 						<div class="text-sm font-medium text-gray-800">
@@ -273,10 +294,7 @@
 		options={{
 			center: [45.421827, -75.682967],
 			zoom: 16,
-			maxBounds: [
-				[45.430818, -75.698964], // top left
-				[45.414538, -75.662871] // bottom right
-			],
+			maxBounds: MAP_BOUNDARY,
 			minZoom: 13,
 			maxZoom: 18,
 			maxBoundsViscosity: 0.8,
@@ -300,9 +318,10 @@
 			<Circle
 				latLng={userPosition}
 				options={{
-					fillOpacity: 0.5,
+					fillOpacity: 0.8,
 					radius: 5,
-					color: '#8f001a'
+					color: '#8f001a',
+					className: 'user-marker'
 				}}
 			>
 				<Tooltip options={{ content: $t('map.you_are_here') }} />
