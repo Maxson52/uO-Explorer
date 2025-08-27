@@ -18,20 +18,20 @@
 			content: $t('tour.steps.2.body'),
 			target: '.tour-step-2',
 			fixed: true,
-			beforeLeave: () => goto('map')
+			beforeEnter: () => goto('/home')
 		},
 		{
 			title: $t('tour.steps.3.title'),
 			content: $t('tour.steps.3.body'),
 			fixed: true,
-			beforeEnter: () => tg.setOptions({ hidePrev: true })
+			beforeEnter: () => goto('/map')
 		},
 		{
 			title: $t('tour.steps.4.title'),
 			content: $t('tour.steps.4.body'),
 			target: '.tour-step-3',
 			fixed: true,
-			beforeEnter: () => tg.setOptions({ hidePrev: false, exitOnClickOutside: true })
+			beforeEnter: () => tg.setOptions({ exitOnClickOutside: true })
 		}
 	];
 

@@ -1,5 +1,4 @@
 <script lang="ts">
-	import Loading from '$lib/components/Loading.svelte';
 	import { getPocketBaseInstance } from '$lib/states/pocketbase.svelte';
 	import { locale, t } from 'svelte-i18n';
 	const { pb } = getPocketBaseInstance();

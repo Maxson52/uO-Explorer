@@ -115,7 +115,7 @@
 			"connection": "Ensure you're connected to the internet and try reloading"
 		},
 		"map": {
-			"outside_boundary": "You are outside the allowed boundary.",
+			"outside_boundary": "Geolocation is disabled since you are too far from campus.",
 			"location_disabled": "Geolocation is disabled. Please enable it in your browser settings.",
 			"location_unsupported": "Geolocation is not supported by this browser."
 		}

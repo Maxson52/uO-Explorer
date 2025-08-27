@@ -115,7 +115,7 @@
 			"connection": "Assurez-vous d'être connecté à Internet et rechargez la page"
 		},
 		"map": {
-			"outside_boundary": "Vous êtes en dehors de la zone autorisée.",
+			"outside_boundary": "La géolocalisation est désactivée car vous êtes trop loin du campus.",
 			"location_disabled": "La géolocalisation est désactivée. Veuillez l'activer dans les paramètres de votre navigateur.",
 			"location_unsupported": "La géolocalisation n'est pas prise en charge par ce navigateur."
 		}
