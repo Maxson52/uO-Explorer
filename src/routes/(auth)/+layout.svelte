@@ -43,11 +43,21 @@
 	<div class="relative h-full">
 		<footer class="fixed bottom-6 flex w-full items-center justify-center gap-2">
 			<span class="text-lg font-semibold">{$t('auth.powered_by')}</span>
-			<img
-				src={$locale == 'fr' ? '/CGEC_black.svg' : '/CEED_black.svg'}
-				alt="Organization Logo"
-				class="h-5"
-			/>
+			<a
+				href="https://www.uottawa.ca/faculty-engineering/centre-entrepreneurship-engineering-design"
+				target="_blank"
+				rel="noreferrer"
+			>
+				<img
+					src={$locale == 'fr' ? '/CGEC_black.svg' : '/CEED_black.svg'}
+					alt="CEED Logo"
+					class="h-5"
+				/>
+			</a>
+			&
+			<a href="https://www.uottawa.ca/alumni/alumni-association" target="_blank" rel="noreferrer">
+				<img src="/alumni_logo.png" alt="Alumni Logo" class="h-7" />
+			</a>
 		</footer>
 	</div>
 {/if}

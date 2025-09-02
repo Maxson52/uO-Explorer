@@ -34,9 +34,9 @@
 		"map": "Campus Map",
 		"donate": "Donate",
 		"help": "Help",
-		"purchase_ring": "Purchase a Ring",
+		"purchase_ring": "Order Your uOttawa Ring",
 		"emergency": "Emergency",
-		"sponsors": "Sponsors",
+		"partners": "Partners",
 		"settings": "Settings",
 		"change_password": "Change Password",
 		"change_email": "Change Email",
@@ -120,8 +120,8 @@
 			"location_unsupported": "Geolocation is not supported by this browser."
 		}
 	},
-	"sponsors": {
-		"our_sponsors": "Our Sponsors",
+	"partners": {
+		"our_partners": "Our Partners",
 		"ceed": "CEED provides hands-on engineering design and entrepreneurship education, connecting students with industry to develop products and business skills. uOttawa Explorer was brought to life by MakerRepo developer",
 		"manulife": "A leading international financial services group that helps people make their decisions easier and lives better.",
 		"belairdirect": "A Canadian insurance company offering car and home insurance with innovative digital tools and personalized service.",

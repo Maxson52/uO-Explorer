@@ -82,11 +82,7 @@
 	</li>
 
 	<li>
-		<a
-			href="https://www.zeffy.com/en-CA/donation-form/f62f4dd9-f042-480b-9d39-6f1f824486c9"
-			target="_blank"
-			rel="noreferrer">{$t('nav.donate')}</a
-		>
+		<a href="/partners" onclick={() => (isDrawerOpen = !isDrawerOpen)}>{$t('nav.partners')}</a>
 	</li>
 
 	<li>
@@ -98,11 +94,15 @@
 	</li>
 
 	<li>
-		<a href="tel:613-562-5411">{$t('nav.emergency')}</a>
+		<a
+			href="https://www.zeffy.com/en-CA/donation-form/f62f4dd9-f042-480b-9d39-6f1f824486c9"
+			target="_blank"
+			rel="noreferrer">{$t('nav.donate')}</a
+		>
 	</li>
 
 	<li>
-		<a href="/sponsors" onclick={() => (isDrawerOpen = !isDrawerOpen)}>{$t('nav.sponsors')}</a>
+		<a href="tel:613-562-5411">{$t('nav.emergency')}</a>
 	</li>
 
 	<li>
@@ -149,11 +149,21 @@
 			class="fixed bottom-[calc(1rem+env(safe-area-inset-bottom))] right-0 flex w-full items-center justify-center gap-2"
 		>
 			<span class="font-semibold">{$t('auth.powered_by')}</span>
-			<img
-				src={$locale == 'fr' ? '/CGEC_black.svg' : '/CEED_black.svg'}
-				alt="Organization Logo"
-				class="h-5"
-			/>
+			<a
+				href="https://www.uottawa.ca/faculty-engineering/centre-entrepreneurship-engineering-design"
+				target="_blank"
+				rel="noreferrer"
+			>
+				<img
+					src={$locale == 'fr' ? '/CGEC_black.svg' : '/CEED_black.svg'}
+					alt="CEED Logo"
+					class="h-5"
+				/>
+			</a>
+			&
+			<a href="https://www.uottawa.ca/alumni/alumni-association" target="_blank" rel="noreferrer">
+				<img src="/alumni_logo.png" alt="Alumni Logo" class="h-7" />
+			</a>
 		</footer>
 	</div>
 {/snippet}

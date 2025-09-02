@@ -34,9 +34,9 @@
 		"map": "Carte du campus",
 		"donate": "Faire un don",
 		"help": "Aide",
-		"purchase_ring": "Acheter une bague",
+		"purchase_ring": "Commandez votre anneau uOttawa",
 		"emergency": "Urgence",
-		"sponsors": "Commanditaires",
+		"partners": "Partenaires",
 		"settings": "Paramètres",
 		"change_password": "Changer le mot de passe",
 		"change_email": "Changer l'adresse email",
@@ -120,8 +120,8 @@
 			"location_unsupported": "La géolocalisation n'est pas prise en charge par ce navigateur."
 		}
 	},
-	"sponsors": {
-		"our_sponsors": "Nos commanditaires",
+	"partners": {
+		"our_partners": "Nos Partenaires",
 		"ceed": "CEED offre une formation pratique en conception technique et en entrepreneuriat, en connectant les étudiants avec l'industrie pour développer des produits et des compétences commerciales. uOttawa Explorer a vu le jour grâce au développeur MakerRepo",
 		"manulife": "Un groupe international de services financiers de premier plan qui aide les gens à prendre des décisions plus faciles et à vivre mieux.",
 		"belairdirect": "Une compagnie d'assurance canadienne offrant des solutions d'assurance auto et habitation avec des outils numériques innovants et un service personnalisé.",

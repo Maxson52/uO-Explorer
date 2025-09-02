@@ -38,6 +38,9 @@
 
 	$effect(() => {
 		if (!map) return;
+		map.attributionControl.setPrefix(
+			"<a href='https://leafletjs.com' title='A JavaScript library for interactive maps' target='_blanl' rel='noreferrer'>Leaflet</a>"
+		);
 		// open popup to center of screen
 		map.on('popupopen', (e: any) => map.panTo(e.target._popup._latlng));
 		// remove selected location (from dropdown) if no directions are set
@@ -345,6 +348,9 @@
 		{#await data then [locationsData, visitsData]}
 			{#each locationsData as location}
 				{@const isVisited = visitsData.some((v) => v.location_id === location.id)}
+				{@const iconUrl = location.custom_icon
+					? `${PUBLIC_POCKETBASE_HOST}/api/files/locations/${location.id}/${location.custom_icon}`
+					: '/pin.png'}
 				<Marker
 					latLng={location.location}
 					bind:instance={mapMarkers[location.id]}
@@ -352,14 +358,14 @@
 						opacity: isVisited ? 0.5 : 1
 					}}
 				>
-					{#if location.custom_icon}
-						<Icon
-							options={{
-								iconUrl: `${PUBLIC_POCKETBASE_HOST}/api/files/locations/${location.id}/${location.custom_icon}`,
-								iconSize: [30, 30]
-							}}
-						/>
-					{/if}
+					<Icon
+						options={{
+							iconUrl: iconUrl,
+							iconSize: [30, 30],
+							iconAnchor: [15, 30],
+							popupAnchor: [0, -20]
+						}}
+					/>
 
 					<Popup>
 						<h1 class="font-bold">
