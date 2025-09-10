@@ -87,7 +87,9 @@
 
 	<li>
 		<a
-			href="https://www.balfour.com/uOttawa?srsltid=AfmBOorXPNrvzr3AMn19jT1crzA-yAv5YVm4oVkR6WmxbsHYeSl11Vtd"
+			href={$locale == 'fr'
+				? 'https://www.balfour.com/fr/uOttawa'
+				: 'https://www.balfour.com/uOttawa?srsltid=AfmBOorXPNrvzr3AMn19jT1crzA-yAv5YVm4oVkR6WmxbsHYeSl11Vtd'}
 			target="_blank"
 			rel="noreferrer">{$t('nav.purchase_ring')}</a
 		>
@@ -95,7 +97,9 @@
 
 	<li>
 		<a
-			href="https://www.zeffy.com/en-CA/donation-form/f62f4dd9-f042-480b-9d39-6f1f824486c9"
+			href={$locale == 'fr'
+				? 'https://www.zeffy.com/fr-CA/donation-form/f62f4dd9-f042-480b-9d39-6f1f824486c9'
+				: 'https://www.zeffy.com/en-CA/donation-form/f62f4dd9-f042-480b-9d39-6f1f824486c9'}
 			target="_blank"
 			rel="noreferrer">{$t('nav.donate')}</a
 		>

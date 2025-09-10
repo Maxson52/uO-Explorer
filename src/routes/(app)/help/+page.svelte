@@ -13,7 +13,7 @@
 				{$t('help.call')} Pamela (613-793-0713)
 			</a>
 			<a href="tel:343-999-4606" class="btn w-full bg-garnet-500 text-white">
-				Call Andréanne (343-999-4606)
+				{$t('help.call')} Andréanne (343-999-4606)
 			</a>
 		</div>
 	</div>

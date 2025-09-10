@@ -76,7 +76,8 @@
 					: location.description_en || location.description_preview_en
 				).replace(
 					/(https?:\/\/[^\s]+)/g,
-					'<a href="$1" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">$1</a>'
+					(match: string) =>
+						`<a href="${match}" target="_blank" rel="noopener noreferrer" class="text-blue-600 hover:underline">${match.length > 25 ? match.substring(0, 40) + '...' : match}</a>`
 				)}
 			</div>
 		</div>
