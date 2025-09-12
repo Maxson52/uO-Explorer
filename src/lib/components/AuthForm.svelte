@@ -52,7 +52,11 @@
 			} else {
 				console.error('Unexpected error:', e);
 				alertType = 'error';
-				alertMessage = (e as Error)?.message;
+
+				// @ts-ignore
+				if (e?.data.data.email?.code == 'validation_not_unique')
+					alertMessage = $t('auth.email_exists');
+				else alertMessage = (e as Error)?.message;
 			}
 		} finally {
 			authing = false;
@@ -73,7 +77,6 @@
 			} else {
 				console.error('Unexpected error:', e);
 				alertType = 'error';
-				// alertMessage = (e as Error)?.message;
 				alertMessage = $t('auth.wrong_info');
 			}
 		} finally {

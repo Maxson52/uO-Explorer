@@ -8,6 +8,7 @@
 		"password": "Password",
 		"confirm_password": "Confirm Password",
 		"wrong_info": "Email or password is incorrect",
+		"email_exists": "There is already an account with this email",
 		"login_to_continue": "Please log in or create an account to continue to the app.",
 		"powered_by": "Powered By",
 		"sign_up": {

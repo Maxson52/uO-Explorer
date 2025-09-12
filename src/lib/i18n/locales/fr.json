@@ -8,6 +8,7 @@
 		"password": "Mot de passe",
 		"confirm_password": "Confirmer mot de passe",
 		"wrong_info": "L'adresse courriel ou le mot de passe est incorrect",
+		"email_exists": "Il existe déjà un compte avec cette adresse courriel",
 		"login_to_continue": "Veuillez vous connecter ou créer un compte pour accéder à l'application.",
 		"powered_by": "Alimenté Par",
 		"sign_up": {
