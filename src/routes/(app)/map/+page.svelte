@@ -70,12 +70,11 @@
 					if (!inBoundary && !localStorage.getItem('out-of-boundary-alert')) {
 						alert($t('error.map.outside_boundary'));
 						localStorage.setItem('out-of-boundary-alert', 'true');
-					} else if (inBoundary) {
-						localStorage.removeItem('out-of-boundary-alert');
 					}
 					if (!inBoundary) return;
 
 					// if user is in the bounds, set their position
+					localStorage.removeItem('out-of-boundary-alert');
 					userPosition = newPosition;
 
 					localStorage.removeItem('location-disabled-alert');
@@ -355,7 +354,7 @@
 					latLng={location.location}
 					bind:instance={mapMarkers[location.id]}
 					options={{
-						opacity: isVisited ? 0.5 : 1
+						opacity: isVisited ? 0.8 : 1
 					}}
 				>
 					<Icon
