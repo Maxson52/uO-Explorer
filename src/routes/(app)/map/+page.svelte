@@ -154,7 +154,7 @@
 	{@const visitedCount = visitsData.filter((v) =>
 		locationsData.some((l) => l.id === v.location_id)
 	).length}
-	{@const totalLocations = locationsData.length}
+	{@const totalLocations = locationsData.filter((location) => location.has_qr_code === true).length}
 	{@const progressPercentage =
 		totalLocations > 0 ? Math.round((visitedCount / totalLocations) * 100) : 0}
 	<div

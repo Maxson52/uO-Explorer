@@ -102,6 +102,10 @@
 						</div>
 					{/if}
 				</div>
+			{:else}
+				<div class="p-4 bg-white border-l-4 border-gray-300 rounded-lg shadow">
+					No events are scheduled yet!
+				</div>
 			{/each}
 		{:catch error}
 			<p class="text-red-500">Error loading events: {error.message}</p>

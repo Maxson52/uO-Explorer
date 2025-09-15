@@ -45,13 +45,5 @@
 				{$t('partners.manulife')}
 			</p>
 		</div>
-
-		<!-- TD Small Business -->
-		<div>
-			<img src="/partners/td.png" alt="TD Small Business" class="h-auto max-w-48 object-contain" />
-			<p class="text-gray-700">
-				{$t('partners.td')}
-			</p>
-		</div>
 	</div>
 </div>
