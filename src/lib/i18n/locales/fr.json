@@ -71,9 +71,9 @@
 		"get_directions": "Obtenir l'itinéraire",
 		"directions_to": "Itinéraire vers",
 		"learn_more": "En savoir plus",
-		"progress": "Découvert {visited} de {total} lieux ({percentage}%)",
+		"progress": "Découvert {visited} de {total} arrêts ({percentage}%)",
 		"you_are_here": "Vous êtes ici",
-		"locations": "Lieux",
+		"locations": "Arrêts",
 		"already_there": "Hmm... Il semble que vous soyez déjà à cet endroit"
 	},
 	"home": {
@@ -122,17 +122,17 @@
 		}
 	},
 	"partners": {
-		"our_partners": "Nos Partenaires",
+		"our_partners": "Nos partenaires",
 		"ceed": "CEED offre une formation pratique en conception technique et en entrepreneuriat, en connectant les étudiants avec l'industrie pour développer des produits et des compétences commerciales. uOttawa Explorer a vu le jour grâce au développeur MakerRepo",
-		"manulife": "Un groupe international de services financiers de premier plan qui aide les gens à prendre des décisions plus faciles et à vivre mieux.",
-		"belairdirect": "Une compagnie d'assurance canadienne offrant des solutions d'assurance auto et habitation avec des outils numériques innovants et un service personnalisé."
+		"manulife": "Manuvie offre des régimes d’assurance complets exclusivement aux diplômés de de l'Université de l'Ottawa à des taux qui ne sont pas offerts au grand public. Demandez une soumission dès aujourd’hui!",
+		"belairdirect": "Diplômés de l’Université d’Ottawa, profitez d’un plan exclusif conçu pour vous avec des rabais sur l’assurance auto et habitation, ainsi que des tarifs avantageux sur l’assurance voyage."
 	},
 	"help": {
 		"guide": "Guide",
 		"schedule": "Volet Programme",
-		"schedule_desc": "Cet onglet affiche le programme complet des événements, avec leurs horaires et leurs lieux. L'emplacement de chaque événement est un lien cliquable qui vous montre exactement où il se trouve sur la carte interactive, vous aidant à vous repérer sur le campus.",
+		"schedule_desc": "Cet onglet affiche le programme complet des événements, avec leurs horaires et leurs arrêts. L'emplacement de chaque événement est un lien cliquable qui vous montre exactement où il se trouve sur la carte interactive, vous aidant à vous repérer sur le campus.",
 		"map": "Volet de la Carte du campus",
-		"map_desc": "Utilisez la carte interactive pour explorer le campus. Le bouton 'Lieux' en haut offre un accès rapide aux endroits importants. Appuyez sur une épingle pour voir une brève description, puis appuyez sur 'En savoir plus' pour obtenir tous les détails. Le cercle rouge indique votre position actuelle pour vous guider.",
+		"map_desc": "Utilisez la carte interactive pour explorer le campus. Le bouton 'Arrêts' en haut offre un accès rapide aux endroits importants. Appuyez sur une épingle pour voir une brève description, puis appuyez sur 'En savoir plus' pour obtenir tous les détails. Le cercle rouge indique votre position actuelle pour vous guider.",
 		"location": "'En savoir plus' sur un lieu",
 		"location_desc": "Après avoir cliqué sur 'En savoir plus' depuis la carte du campus, vous pouvez lire une description détaillée de ce lieu. Pour participer au tirage au sort, appuyez sur l'icône d'appareil photo en bas à droite pour scanner le code QR placé à cette étape de la visite.",
 		"need_help": "Besoin d'aide?",

@@ -8,11 +8,19 @@
 	<div class="space-y-12">
 		<!-- belairdirect -->
 		<div>
-			<img
-				src="/partners/belairdirect.png"
-				alt="belairdirect"
-				class="h-auto max-w-48 object-contain pb-4"
-			/>
+			<a
+				href={$locale == 'fr'
+					? 'https://www.belairdirect.com/fr/assurance-groupe/uottawa.html'
+					: 'https://www.belairdirect.com/en/group-insurance/uottawa.html'}
+				target="_blank"
+				rel="noreferrer"
+			>
+				<img
+					src="/partners/belairdirect.png"
+					alt="belairdirect"
+					class="h-auto max-w-48 object-contain pb-4"
+				/>
+			</a>
 			<p class="text-gray-700">
 				{$t('partners.belairdirect')}
 			</p>
@@ -20,11 +28,19 @@
 
 		<!-- CEED -->
 		<div>
-			<img
-				src={$locale == 'en' ? '/CEED_black.svg' : '/CGEC_black.svg'}
-				alt="Manulife"
-				class="h-auto max-w-36 object-contain pb-4"
-			/>
+			<a
+				href={$locale == 'fr'
+					? 'https://www.uottawa.ca/faculte-genie/centre-genie-entrepreneurial-conception'
+					: 'https://www.uottawa.ca/faculty-engineering/centre-entrepreneurship-engineering-design'}
+				target="_blank"
+				rel="noreferrer"
+			>
+				<img
+					src={$locale == 'en' ? '/CEED_black.svg' : '/CGEC_black.svg'}
+					alt="Manulife"
+					class="h-auto max-w-36 object-contain pb-4"
+				/>
+			</a>
 
 			<p class="text-gray-700">
 				{$t('partners.ceed')}
@@ -35,11 +51,19 @@
 
 		<!-- Manulife -->
 		<div>
-			<img
-				src="/partners/manulife.png"
-				alt="Manulife"
-				class="h-auto max-w-48 object-contain pb-4"
-			/>
+			<a
+				href={$locale == 'fr'
+					? 'https://www.assurance-manuvie.ca/uottawa/'
+					: 'https://www.manulife-insurance.ca/uottawa/'}
+				target="_blank"
+				rel="noreferrer"
+			>
+				<img
+					src={$locale == 'fr' ? '/partners/manulife_fr.png' : '/partners/manulife.png'}
+					alt="Manulife"
+					class="h-auto max-w-48 object-contain pb-4"
+				/>
+			</a>
 
 			<p class="text-gray-700">
 				{$t('partners.manulife')}

@@ -1,201 +1,201 @@
 {
-	"site_name": "uOttawa Explorer",
-	"loading": "Loading",
-	"back": "Back",
-	"auth": {
-		"email": "Email Address",
-		"name": "Name",
-		"password": "Password",
-		"confirm_password": "Confirm Password",
-		"wrong_info": "Email or password is incorrect",
-		"email_exists": "There is already an account with this email",
-		"login_to_continue": "Please log in or create an account to continue to the app.",
-		"powered_by": "Powered By",
-		"sign_up": {
-			"title": "Sign Up",
-			"button": "Sign Up",
-			"have_account": "Already have an account?",
-			"login_link": "Log In"
-		},
-		"login": {
-			"title": "Log In",
-			"button": "Log In",
-			"no_account": "Don't have an account?",
-			"signup_link": "Sign Up",
-			"forgot_password_link": "Forgot your password?"
-		},
-		"forgot_password": {
-			"title": "Forgot your password?",
-			"subtitle": "No worries! Simply enter your registered email address below, and we'll send you instructions on how to reset it.",
-			"button": "Reset Password"
-		}
-	},
-	"nav": {
-		"home": "Schedule",
-		"map": "Campus Map",
-		"donate": "Donate",
-		"help": "Help",
-		"purchase_ring": "Order Your uOttawa Ring",
-		"emergency": "Emergency",
-		"partners": "Partners",
-		"settings": "Settings",
-		"change_password": "Change Password",
-		"change_email": "Change Email",
-		"delete_account": "Delete Account",
-		"log_out": "Log Out",
-		"more": "More"
-	},
-	"settings": {
-		"check_inbox": "Please check your inbox.",
-		"send_email": "Send Email",
-		"confirm": "Confirm",
-		"cancel": "Cancel",
-		"change_password": {
-			"message": "Upon clicking the 'Change Password' button, you'll receive an email with a link to update your password.",
-			"description": "Mettez à jour votre mot de passe régulièrement pour assurer la sécurité de votre compte."
-		},
-		"change_email": {
-			"current_email": "Current Email Address",
-			"message": "Upon clicking the 'Change Email' button, you'll receive an email with a link to confirm your new email address.",
-			"description": "Maintenez votre adresse email à jour pour recevoir les notifications importantes."
-		},
-		"delete_account": {
-			"current_email": "Current Email Address",
-			"message": "We're sad to see you go - but if you must, confirm your email address and click the button below to proceed.",
-			"delete_forever": "Delete My Account Forever",
-			"are_you_sure": "Are you sure you want to delete your account? This cannot be undone.",
-			"description": "Supprimer définitivement votre compte (cette action est irréversible)."
-		}
-	},
-	"map": {
-		"get_directions": "Get Directions",
-		"directions_to": "Directions to",
-		"learn_more": "Learn more",
-		"progress": "Discovered {visited} of {total} locations ({percentage}%)",
-		"you_are_here": "You are here",
-		"locations": "Locations",
-		"already_there": "Hmm... it looks like you are already at this location"
-	},
-	"home": {
-		"view_map": "See the Campus Map",
-		"schedule": "Schedule",
-		"start": "From",
-		"end": "Until",
-		"where": "Where",
-		"reserve_spot": "Reserve your spot"
-	},
-	"scan": {
-		"title": "Scan",
-		"description": "Scan the QR Codes placed throughout the campus to gain entries to the lucky draw!",
-		"camera_permission": "Please enable camera permissions to begin scanning",
-		"back_to_map": "Back to Map",
-		"back_to_location": "Back to Location Page",
-		"draw_entered": "+1 Entry to the lucky draw",
-		"scanned": "scanned",
-		"invalid_qr": "Invalid QR Code",
-		"location_doesnt_exist": "This location doesn't exist in our system."
-	},
-	"error": {
-		"404": {
-			"message": "The page you're looking for doesn't exist or may have been moved."
-		},
-		"status": {
-			"default": "Error"
-		},
-		"message": {
-			"default": "Something went wrong"
-		},
-		"general": {
-			"message": "We encountered an unexpected error. Please check your internet connection and try again."
-		},
-		"actions": {
-			"retry": "Try Again",
-			"home": "Return Home"
-		},
-		"hints": {
-			"connection": "Ensure you're connected to the internet and try reloading"
-		},
-		"map": {
-			"outside_boundary": "Geolocation is disabled since you are too far from campus.",
-			"location_disabled": "Geolocation is disabled. Please enable it in your browser settings.",
-			"location_unsupported": "Geolocation is not supported by this browser."
-		}
-	},
-	"partners": {
-		"our_partners": "Our Partners",
-		"ceed": "CEED provides hands-on engineering design and entrepreneurship education, connecting students with industry to develop products and business skills. uOttawa Explorer was brought to life by MakerRepo developer",
-		"manulife": "A leading international financial services group that helps people make their decisions easier and lives better.",
-		"belairdirect": "A Canadian insurance company offering car and home insurance with innovative digital tools and personalized service."
-	},
-	"help": {
-		"guide": "Guide",
-		"schedule": "Schedule Tab",
-		"schedule_desc": "This tab displays the full plan of events, including their times and venues. Each event's location is a clickable link that will show you exactly where it is on the interactive map, helping you navigate the campus easily.",
-		"map": "Campus Map Tab",
-		"map_desc": "Use the interactive map to explore the campus. The 'Locations' button at the top provides quick shortcuts to important spots. Tap any pin to see a brief description, then tap 'Learn More' for full details. The red circle shows your current location to help you navigate.",
-		"location": "'Learn More' about a Location",
-		"location_desc": "After clicking 'Learn More' from the campus map, you can read a detailed description of this location. To gain an entry to the lucky draw, tap the camera icon in the bottom right to scan the QR code placed at this tour stop.",
-		"need_help": "Need Help?",
-		"contact_us": "Contact us",
-		"call": "Call us",
-		"guide_desc": "Not sure where to go? Read the descriptions below to find out more about the features of uOttawa Explorer. Note that we HIGHLY recommend the app be \"Added to Homescreen\" for the best experience."
-	},
-	"tour": {
-		"next": "Next",
-		"previous": "Back",
-		"finish": "Finish",
-		"steps": {
-			"1": {
-				"title": "Welcome to uOttawa Explorer 👋",
-				"body": "Welcome! This is the Schedule page, your hub for all upcoming events. Here you can easily find what's happening, along with their scheduled times and locations."
-			},
-			"2": {
-				"title": "Explore the Map",
-				"body": "Next, click the 'Campus Map' button in the navigation bar. This is where you'll find the interactive map to explore our beautiful campus."
-			},
-			"3": {
-				"title": "Using the Interactive Map",
-				"body": "This is the interactive map! Click on any pin to view a location, learn more about it, or use the dropdown menu to navigate directly. Track your tour progress with the bar at the top. The red circle shows your current location!"
-			},
-			"4": {
-				"title": "More Options & Help",
-				"body": "Click 'More' in the navbar to change the language, find quick links to important resources, and get additional help if you need it. Enjoy your tour!"
-			}
-		}
-	},
-	"install": {
-		"title": "Install Our App",
-		"description": "Get the best experience with our app installed on your device!",
-		"close": "Close",
-		"button": {
-			"install": "Install Now",
-			"later": "Maybe Later"
-		},
-		"instructions": {
-			"ios": {
-				"step1": "Tap the Share button",
-				"step2": "Scroll down and tap \"Add to Home Screen\"",
-				"step3": "Tap \"Add\" to install"
-			},
-			"chrome": {
-				"step1": "Tap the menu (⋮)",
-				"step2": "Select \"Add to Home screen\"",
-				"step3": "Tap \"Add\" to install"
-			},
-			"firefox": {
-				"step1": "Tap the menu (⋮)",
-				"step2": "Select \"Install\"",
-				"step3": "Confirm installation"
-			},
-			"edge": {
-				"step1": "Tap the menu (⋯)",
-				"step2": "Select \"Add to phone\"",
-				"step3": "Tap \"Add\" to install"
-			},
-			"generic": {
-				"step1": "Look for \"Add to Home Screen\" in your browser menu",
-				"step2": "Follow the prompts to install"
-			}
-		}
-	}
+  "site_name": "uOttawa Explorer",
+  "loading": "Loading",
+  "back": "Back",
+  "auth": {
+    "email": "Email Address",
+    "name": "Name",
+    "password": "Password",
+    "confirm_password": "Confirm Password",
+    "wrong_info": "Email or password is incorrect",
+    "email_exists": "There is already an account with this email",
+    "login_to_continue": "Please log in or create an account to continue to the app.",
+    "powered_by": "Powered By",
+    "sign_up": {
+      "title": "Sign Up",
+      "button": "Sign Up",
+      "have_account": "Already have an account?",
+      "login_link": "Log In"
+    },
+    "login": {
+      "title": "Log In",
+      "button": "Log In",
+      "no_account": "Don't have an account?",
+      "signup_link": "Sign Up",
+      "forgot_password_link": "Forgot your password?"
+    },
+    "forgot_password": {
+      "title": "Forgot your password?",
+      "subtitle": "No worries! Simply enter your registered email address below, and we'll send you instructions on how to reset it.",
+      "button": "Reset Password"
+    }
+  },
+  "nav": {
+    "home": "Schedule",
+    "map": "Campus Map",
+    "donate": "Donate",
+    "help": "Help",
+    "purchase_ring": "Order Your uOttawa Ring",
+    "emergency": "Emergency",
+    "partners": "Partners",
+    "settings": "Settings",
+    "change_password": "Change Password",
+    "change_email": "Change Email",
+    "delete_account": "Delete Account",
+    "log_out": "Log Out",
+    "more": "More"
+  },
+  "settings": {
+    "check_inbox": "Please check your inbox.",
+    "send_email": "Send Email",
+    "confirm": "Confirm",
+    "cancel": "Cancel",
+    "change_password": {
+      "message": "Upon clicking the 'Change Password' button, you'll receive an email with a link to update your password.",
+      "description": "Mettez à jour votre mot de passe régulièrement pour assurer la sécurité de votre compte."
+    },
+    "change_email": {
+      "current_email": "Current Email Address",
+      "message": "Upon clicking the 'Change Email' button, you'll receive an email with a link to confirm your new email address.",
+      "description": "Maintenez votre adresse email à jour pour recevoir les notifications importantes."
+    },
+    "delete_account": {
+      "current_email": "Current Email Address",
+      "message": "We're sad to see you go - but if you must, confirm your email address and click the button below to proceed.",
+      "delete_forever": "Delete My Account Forever",
+      "are_you_sure": "Are you sure you want to delete your account? This cannot be undone.",
+      "description": "Supprimer définitivement votre compte (cette action est irréversible)."
+    }
+  },
+  "map": {
+    "get_directions": "Get Directions",
+    "directions_to": "Directions to",
+    "learn_more": "Learn more",
+    "progress": "Discovered {visited} of {total} locations ({percentage}%)",
+    "you_are_here": "You are here",
+    "locations": "Locations",
+    "already_there": "Hmm... it looks like you are already at this location"
+  },
+  "home": {
+    "view_map": "See the Campus Map",
+    "schedule": "Schedule",
+    "start": "From",
+    "end": "Until",
+    "where": "Where",
+    "reserve_spot": "Reserve your spot"
+  },
+  "scan": {
+    "title": "Scan",
+    "description": "Scan the QR Codes placed throughout the campus to gain entries to the lucky draw!",
+    "camera_permission": "Please enable camera permissions to begin scanning",
+    "back_to_map": "Back to Map",
+    "back_to_location": "Back to Location Page",
+    "draw_entered": "+1 Entry to the lucky draw",
+    "scanned": "scanned",
+    "invalid_qr": "Invalid QR Code",
+    "location_doesnt_exist": "This location doesn't exist in our system."
+  },
+  "error": {
+    "404": {
+      "message": "The page you're looking for doesn't exist or may have been moved."
+    },
+    "status": {
+      "default": "Error"
+    },
+    "message": {
+      "default": "Something went wrong"
+    },
+    "general": {
+      "message": "We encountered an unexpected error. Please check your internet connection and try again."
+    },
+    "actions": {
+      "retry": "Try Again",
+      "home": "Return Home"
+    },
+    "hints": {
+      "connection": "Ensure you're connected to the internet and try reloading"
+    },
+    "map": {
+      "outside_boundary": "Geolocation is disabled since you are too far from campus.",
+      "location_disabled": "Geolocation is disabled. Please enable it in your browser settings.",
+      "location_unsupported": "Geolocation is not supported by this browser."
+    }
+  },
+  "partners": {
+    "our_partners": "Our Partners",
+    "ceed": "CEED provides hands-on engineering design and entrepreneurship education, connecting students with industry to develop products and business skills. uOttawa Explorer was brought to life by MakerRepo developer",
+    "manulife": "Manulife offers comprehensive insurance plans exclusively for University of Ottawa alumni at rates not available to the general public. Get a quote today!",
+    "belairdirect": "University of Ottawa Alumni, we have an exclusive plan built just for you with access to discounts on home ＆ car insurance and great rates on travel insurance."
+  },
+  "help": {
+    "guide": "Guide",
+    "schedule": "Schedule Tab",
+    "schedule_desc": "This tab displays the full plan of events, including their times and venues. Each event's location is a clickable link that will show you exactly where it is on the interactive map, helping you navigate the campus easily.",
+    "map": "Campus Map Tab",
+    "map_desc": "Use the interactive map to explore the campus. The 'Locations' button at the top provides quick shortcuts to important spots. Tap any pin to see a brief description, then tap 'Learn More' for full details. The red circle shows your current location to help you navigate.",
+    "location": "'Learn More' about a Location",
+    "location_desc": "After clicking 'Learn More' from the campus map, you can read a detailed description of this location. To gain an entry to the lucky draw, tap the camera icon in the bottom right to scan the QR code placed at this tour stop.",
+    "need_help": "Need Help?",
+    "contact_us": "Contact us",
+    "call": "Call us",
+    "guide_desc": "Not sure where to go? Read the descriptions below to find out more about the features of uOttawa Explorer. Note that we HIGHLY recommend the app be \"Added to Homescreen\" for the best experience."
+  },
+  "tour": {
+    "next": "Next",
+    "previous": "Back",
+    "finish": "Finish",
+    "steps": {
+      "1": {
+        "title": "Welcome to uOttawa Explorer 👋",
+        "body": "Welcome! This is the Schedule page, your hub for all upcoming events. Here you can easily find what's happening, along with their scheduled times and locations."
+      },
+      "2": {
+        "title": "Explore the Map",
+        "body": "Next, click the 'Campus Map' button in the navigation bar. This is where you'll find the interactive map to explore our beautiful campus."
+      },
+      "3": {
+        "title": "Using the Interactive Map",
+        "body": "This is the interactive map! Click on any pin to view a location, learn more about it, or use the dropdown menu to navigate directly. Track your tour progress with the bar at the top. The red circle shows your current location!"
+      },
+      "4": {
+        "title": "More Options & Help",
+        "body": "Click 'More' in the navbar to change the language, find quick links to important resources, and get additional help if you need it. Enjoy your tour!"
+      }
+    }
+  },
+  "install": {
+    "title": "Install Our App",
+    "description": "Get the best experience with our app installed on your device!",
+    "close": "Close",
+    "button": {
+      "install": "Install Now",
+      "later": "Maybe Later"
+    },
+    "instructions": {
+      "ios": {
+        "step1": "Tap the Share button",
+        "step2": "Scroll down and tap \"Add to Home Screen\"",
+        "step3": "Tap \"Add\" to install"
+      },
+      "chrome": {
+        "step1": "Tap the menu (⋮)",
+        "step2": "Select \"Add to Home screen\"",
+        "step3": "Tap \"Add\" to install"
+      },
+      "firefox": {
+        "step1": "Tap the menu (⋮)",
+        "step2": "Select \"Install\"",
+        "step3": "Confirm installation"
+      },
+      "edge": {
+        "step1": "Tap the menu (⋯)",
+        "step2": "Select \"Add to phone\"",
+        "step3": "Tap \"Add\" to install"
+      },
+      "generic": {
+        "step1": "Look for \"Add to Home Screen\" in your browser menu",
+        "step2": "Follow the prompts to install"
+      }
+    }
+  }
 }
