@@ -27,7 +27,7 @@
 				location_id: id
 			});
 		} catch (err: any) {
-			error = err.message;
+			error = err.status;
 		} finally {
 			loading = false;
 		}
@@ -40,7 +40,7 @@
 	{:else if error || !location}
 		<div class="mb-4 border-l-4 border-red-500 bg-red-100 p-4 text-red-700" role="alert">
 			<p class="font-bold">{$t('scan.invalid_qr')}</p>
-			<p>{$t('scan.location_doesnt_exist')}</p>
+			<p>{error == 404 ? $t('scan.location_doesnt_exist') : $t('scan.already_scanned')}</p>
 		</div>
 	{:else}
 		<div class="mb-4 border-l-4 border-green-500 bg-green-100 p-4 text-green-700" role="alert">

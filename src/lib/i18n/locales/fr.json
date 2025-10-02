@@ -93,7 +93,8 @@
 		"draw_entered": "+1 Participation au tirage",
 		"scanned": "scanné",
 		"invalid_qr": "Code QR invalide",
-		"location_doesnt_exist": "Cet emplacement n'existe pas dans notre système."
+		"location_doesnt_exist": "Cet arrêt n'existe pas dans notre système.",
+		"already_scanned": "Il semble que vous ayez déjà scanné cet arrêt."
 	},
 	"error": {
 		"404": {
@@ -130,7 +131,7 @@
 	"help": {
 		"guide": "Guide",
 		"schedule": "Volet Programme",
-		"schedule_desc": "Cet onglet affiche le programme complet des événements, avec leurs horaires et leurs arrêts. L'emplacement de chaque événement est un lien cliquable qui vous montre exactement où il se trouve sur la carte interactive, vous aidant à vous repérer sur le campus.",
+		"schedule_desc": "Cet onglet affiche le programme complet des événements, avec leurs horaires et leurs arrêts. L'arrêt de chaque événement est un lien cliquable qui vous montre exactement où il se trouve sur la carte interactive, vous aidant à vous repérer sur le campus.",
 		"map": "Volet de la Carte du campus",
 		"map_desc": "Utilisez la carte interactive pour explorer le campus. Le bouton 'Arrêts' en haut offre un accès rapide aux endroits importants. Appuyez sur une épingle pour voir une brève description, puis appuyez sur 'En savoir plus' pour obtenir tous les détails. Le cercle rouge indique votre position actuelle pour vous guider.",
 		"location": "'En savoir plus' sur un lieu",
@@ -147,7 +148,7 @@
 		"steps": {
 			"1": {
 				"title": "Bienvenue sur uOttawa Explorer 👋",
-				"body": "Bienvenue ! Voici la page d'horaire, votre centre pour tous les événements à venir. Ici, vous pouvez facilement trouver ce qui se passe, ainsi que leurs heures prévues et leurs emplacements."
+				"body": "Bienvenue ! Voici la page d'horaire, votre centre pour tous les événements à venir. Ici, vous pouvez facilement trouver ce qui se passe, ainsi que leurs heures prévues et leurs arrêts."
 			},
 			"2": {
 				"title": "Explorez la carte",
