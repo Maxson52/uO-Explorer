@@ -5,11 +5,24 @@
 	import Navbar from '$lib/components/Navbar.svelte';
 	import Tour from '$lib/components/Tour.svelte';
 
+	function getRedirect() {
+		const path = sessionStorage.getItem('redirect');
+		sessionStorage.removeItem('redirect');
+		return path;
+	}
+	function setRedirect(path: string) {
+		sessionStorage.setItem('redirect', path);
+	}
+
 	setPocketBaseInstance();
 	const { pb } = getPocketBaseInstance();
 
 	pb.authStore.onChange(async (token, record) => {
 		if (!token) await goto('/');
+		else {
+			const path = getRedirect();
+			if (path) await goto(path);
+		}
 	});
 	onMount(async () => {
 		try {
@@ -20,6 +33,7 @@
 		}
 
 		if (!pb.authStore.isValid) {
+			setRedirect(window.location.pathname);
 			await goto('/');
 		}
 	});
